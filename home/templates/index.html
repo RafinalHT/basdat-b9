@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block meta %}
+<title>My Profile</title>
+<link rel="stylesheet">
+{% endblock meta %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title">BABADU-B9</h5>
+            <p class="card-text"></p>
+            <div class="row justify-content-center">
+              <div class="col-sm-6">
+                <a class="btn btn-primary mx-auto m-1" href="{% url 'authentication:login' %}" role="button">Login</a>
+              </div>
+              <div class="col-sm-6">
+                <a class="btn btn-primary mx-auto m-1" href="{% url 'authentication:register' %}" role="button">Register</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+{% endblock content %}
