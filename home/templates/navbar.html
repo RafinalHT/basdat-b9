@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Babadu</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {% if request.session.is_atlet or request.session.is_pelatih or request.session.is_umpire %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'dashboard:dashboard' %}">Dashboard</a>
+          </li>
+          {% endif %}
+          {% if request.session.is_atlet %}
+          <li class="nav-item">
+            <a class="nav-link" href="#">Tes Kualifikasi</a>
+          </li>
+          {% endif %}
+          {% if request.session.is_atlet %}
+          <li class="nav-item">
+            <a class="nav-link" href="#">Daftar Event</a>
+          </li>
+          {% endif %}
+          {% if request.session.is_atlet %}
+          <li class="nav-item">
+            <a class="nav-link" href="#">Enrolled Event</a>
+          </li>
+          {% endif %}
+          {% if request.session.is_atlet %}
+          <li class="nav-item">
+            <a class="nav-link" href="#">Daftar Sponsor</a>
+          </li>
+          {% endif %}
+          {% if request.session.is_pelatih or request.session.is_umpire%}
+          <li class="nav-item">
+            <a class="nav-link" href="#">Daftar Atlet</a>
+          </li>
+          {% endif %}
+          {% if request.session.is_pelatih %}
+          <li class="nav-item">
+            <a class="nav-link" href="#">List Atlet</a>
+          </li>
+          {% endif %}
+          {% if request.session.is_umpire %}
+          <li class="nav-item">
+            <a class="nav-link" href="#">Lihat Event</a>
+          </li>
+          {% endif %}
+          {% if request.session.is_umpire %}
+          <li class="nav-item">
+            <a class="nav-link" href="#">Hasil Pertandingan</a>
+          </li>
+          {% endif %}
+          {% if request.session.is_atlet or request.session.is_pelatih or request.session.is_umpire %}
+          <li class="nav-item">
+            <a class="nav-link" href="#">Logout</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  

@@ -1,0 +1,52 @@
+{% extends 'base_dashboard.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Dashboard</title>
+{% endblock meta %}
+
+{% block content %}
+{% if request.session.is_atlet %}
+<div class="card mx-5 my-4 p-3">
+    <div class="card-body">
+      <h5 class="card-title">Profile Information</h5>
+      <hr>
+      <p class="card-text"><strong>Name:</strong> John Doe</p>
+      <p class="card-text"><strong>Negara</strong> Afrika</p>
+      <p class="card-text"><strong>Email:</strong> johndoe@example.com</p>
+      <p class="card-text"><strong>Tanggal Lahir:</strong> John Doe</p>
+      <p class="card-text"><strong>Play:</strong> John Doe</p>
+      <p class="card-text"><strong>Tinggi Badan:</strong> John Doe</p>
+      <p class="card-text"><strong>Jenis Kelamin:</strong> John Doe</p>
+      <p class="card-text"><strong>Pelatih:</strong> John Doe</p>
+      <p class="card-text"><strong>Status:</strong> John Doe</p>
+      <p class="card-text"><strong>World Rank:</strong> John Doe</p>
+      <p class="card-text"><strong>Total Poin:</strong> John Doe</p>
+    </div>
+  </div>
+  {% endif %}
+{% if request.session.is_pelatih %}
+<div class="card mx-5 my-4 p-3">
+    <div class="card-body">
+      <h5 class="card-title">Profile Information</h5>
+      <hr>
+      <p class="card-text"><strong>Name:</strong> John Doe</p>
+      <p class="card-text"><strong>Negara</strong> Afrika</p>
+      <p class="card-text"><strong>Email:</strong> johndoe@example.com</p>
+      <p class="card-text"><strong>Spesialisasi Kategori:</strong> John Doe</p>
+      <p class="card-text"><strong>Tanggal Mulai:</strong> John Doe</p>
+    </div>
+  </div>
+  {% endif %}
+  {% if request.session.is_umpire %}
+  <div class="card mx-5 my-4 p-3">
+    <div class="card-body">
+      <h5 class="card-title">Profile Information</h5>
+      <hr>
+      <p class="card-text"><strong>Name:</strong> John Doe</p>
+      <p class="card-text"><strong>Negara</strong> Afrika</p>
+      <p class="card-text"><strong>Email:</strong> johndoe@example.com</p>
+    </div>
+  </div>
+  {% endif %}
+{% endblock content %}
