@@ -1,4 +1,4 @@
-{% extends 'base_dashboard.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% block meta %}
@@ -7,46 +7,64 @@
 
 {% block content %}
 {% if request.session.is_atlet %}
-<div class="card mx-5 my-4 p-3">
-    <div class="card-body">
-      <h5 class="card-title">Profile Information</h5>
-      <hr>
-      <p class="card-text"><strong>Name:</strong> John Doe</p>
-      <p class="card-text"><strong>Negara</strong> Afrika</p>
-      <p class="card-text"><strong>Email:</strong> johndoe@example.com</p>
-      <p class="card-text"><strong>Tanggal Lahir:</strong> John Doe</p>
-      <p class="card-text"><strong>Play:</strong> John Doe</p>
-      <p class="card-text"><strong>Tinggi Badan:</strong> John Doe</p>
-      <p class="card-text"><strong>Jenis Kelamin:</strong> John Doe</p>
-      <p class="card-text"><strong>Pelatih:</strong> John Doe</p>
-      <p class="card-text"><strong>Status:</strong> John Doe</p>
-      <p class="card-text"><strong>World Rank:</strong> John Doe</p>
-      <p class="card-text"><strong>Total Poin:</strong> John Doe</p>
+<div class="container p-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-12">
+            <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                <div class="card-body p-5">
+                    <h1 class="title fw-bold text-center">Profile Information</h1>
+                    <hr>
+                    <p class="card-text"><strong>Name:</strong> Olivia Rodrigo</p>
+                    <p class="card-text"><strong>Negara: </strong> Canada</p>
+                    <p class="card-text"><strong>Email:</strong> orodrigo@gmail.com</p>
+                    <p class="card-text"><strong>Tanggal Lahir:</strong> 20 February 2003</p>
+                    <p class="card-text"><strong>Play:</strong> Right</p>
+                    <p class="card-text"><strong>Tinggi Badan:</strong> 165</p>
+                    <p class="card-text"><strong>Jenis Kelamin:</strong> Putri</p>
+                    <p class="card-text"><strong>Pelatih:</strong> Bruce Lee</p>
+                    <p class="card-text"><strong>Status:</strong> Qualified</p>
+                    <p class="card-text"><strong>World Rank:</strong> 2</p>
+                    <p class="card-text"><strong>Total Poin:</strong> John Doe</p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  {% endif %}
+</div>
+{% endif %}
 {% if request.session.is_pelatih %}
-<div class="card mx-5 my-4 p-3">
-    <div class="card-body">
-      <h5 class="card-title">Profile Information</h5>
-      <hr>
-      <p class="card-text"><strong>Name:</strong> John Doe</p>
-      <p class="card-text"><strong>Negara</strong> Afrika</p>
-      <p class="card-text"><strong>Email:</strong> johndoe@example.com</p>
-      <p class="card-text"><strong>Spesialisasi Kategori:</strong> John Doe</p>
-      <p class="card-text"><strong>Tanggal Mulai:</strong> John Doe</p>
+<div class="container p-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-12">
+            <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                <div class="card-body p-5">
+                    <h1 class="title fw-bold text-center">Profile Information</h1>
+                    <hr>
+                    <p class="card-text"><strong>Name:</strong> Bruce Lee</p>
+                    <p class="card-text"><strong>Negara: </strong> Canada</p>
+                    <p class="card-text"><strong>Email:</strong> bruceee@gmail.com</p>
+                    <p class="card-text"><strong>Spesialisasi Kategori:</strong> Ganda Putra</p>
+                    <p class="card-text"><strong>Tanggal Mulai:</strong> 9 Maret 2010</p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
   {% endif %}
   {% if request.session.is_umpire %}
-  <div class="card mx-5 my-4 p-3">
-    <div class="card-body">
-      <h5 class="card-title">Profile Information</h5>
-      <hr>
-      <p class="card-text"><strong>Name:</strong> John Doe</p>
-      <p class="card-text"><strong>Negara</strong> Afrika</p>
-      <p class="card-text"><strong>Email:</strong> johndoe@example.com</p>
+  <div class="container p-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-12">
+            <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                <div class="card-body p-5">
+                    <h1 class="title fw-bold text-center">Profile Information</h1>
+                    <hr>
+                    <p class="card-text"><strong>Name:</strong> John Legend</p>
+                    <p class="card-text"><strong>Negara</strong> Afrika</p>
+                    <p class="card-text"><strong>Email:</strong> iamlegend@gmail.com</p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
   {% endif %}
 {% endblock content %}
