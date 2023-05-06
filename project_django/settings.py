@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'home',
     'dashboard',
     'authentication',
+    'test_kualifikasi',
 ]
 
 MIDDLEWARE = [
