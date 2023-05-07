@@ -39,18 +39,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
     'example_app',
     'hasil_pertandingan',
     'pertandingan',
-=======
     'sponsor',
     'pelatih',
     'home',
     'dashboard',
     'authentication',
     'test_kualifikasi',
->>>>>>> 6f6df79d5976c52469c5204170b4851fc1e1fa39
+    'daftar_event',
+    'enrolled_event',
 ]
 
 MIDDLEWARE = [

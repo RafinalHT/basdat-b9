@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% load static %} {% block meta %}
+<title>Pemilihan Stadium</title>
+<link rel="stylesheet" />
+<style>
+  table,
+  th,
+  td {
+    text-align: center;
+  }
+  .table {
+    margin: 0 auto;
+    width: 80%;
+  }
+</style>
+{% endblock meta %} {% block content %}
+<body>
+  <table class="table table-bordered">
+    <tr>
+      <th colspan="4">Daftar Event</th>
+    </tr>
+    <tr>
+      <th>Nama Stadium</th>
+      <th>Negara</th>
+      <th>Kapasitas</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td>Stadium 1</td>
+      <td>China</td>
+      <td>200000</td>
+      <td><a class="btn btn-primary" role="button">Pilih</a></td>
+    </tr>
+    <tr>
+      <td>Stadium 2</td>
+      <td>Indonesia</td>
+      <td>100000</td>
+      <td><a class="btn btn-primary" role="button">Pilih</a></td>
+    </tr>
+    <tr>
+      <td>Stadium 3</td>
+      <td>England</td>
+      <td>500000</td>
+      <td><a class="btn btn-primary" role="button">Pilih</a></td>
+    </tr>
+  </table>
+</body>
+{% endblock content %}

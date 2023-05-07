@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% load static %} {% block meta %}
+<title>Pemilihan Stadium</title>
+<link rel="stylesheet" />
+<style>
+  table,
+  th,
+  td {
+    text-align: center;
+  }
+  .table {
+    margin: 0 auto;
+    width: 80%;
+  }
+</style>
+{% endblock meta %} {% block content %}
+<body>
+  <table class="table table-bordered">
+    <tr>
+      <th colspan="6">Daftar Event</th>
+    </tr>
+    <tr>
+      <th>Nama Event</th>
+      <th>Total Hadiah</th>
+      <th>Tanggal Mulai</th>
+      <th>Kategori</th>
+      <th>Kapasitas</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td>Event 1</td>
+      <td>$400.000</td>
+      <td>29 Maret 2021</td>
+      <td>S300</td>
+      <td>20/20</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Event 2</td>
+      <td>$3.000.000</td>
+      <td>12 Juni 2022</td>
+      <td>S1000</td>
+      <td>18/20</td>
+      <td><a class="btn btn-primary" role="button">Pilih</a></td>
+    </tr>
+    <tr>
+      <td>Event 3</td>
+      <td>$1.000.000</td>
+      <td>26 April 2023</td>
+      <td>S750</td>
+      <td>15/20</td>
+      <td><a class="btn btn-primary" role="button">Pilih</a></td>
+    </tr>
+  </table>
+</body>
+{% endblock content %}
