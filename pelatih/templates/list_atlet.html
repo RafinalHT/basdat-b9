@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block meta %}
+<title>List Atlet</title>
+<link rel="stylesheet">
+{% endblock meta %}
+
+{% block content %}
+<body>
+    <div class="container p-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                    <div class="card-body p=5 text-center">
+                        <div class="list-atlet">
+                            <h1 class="title fw-bold mb-5">List Atlet</h1>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">World Rank</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for atlet in atlet_list %}
+                                    <tr>
+                                        <td>{{ atlet.name }}</td>
+                                        <td>{{ atlet.email }}</td>
+                                        <td>{{ atlet.world_rank }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock content %}
