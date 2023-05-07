@@ -1,0 +1,105 @@
+{% extends 'base_2.html' %}
+{% load static %}
+{% block meta %}
+<title>Register</title>
+<link rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" />
+
+    <!-- Bootstrap Datepicker CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
+{% endblock meta %}
+
+{% block content %}
+<body>
+    <div class="container p-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-8">
+                <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                    <div class="card-body p-5 ">
+                        <div class = "login">
+                            
+                            <h1 class="title fw-bold text-center">Form Registrasi Pelatih</h1>
+
+                                    <form method="POST" action="">
+                                        {% csrf_token %}
+                                        <div class="form-floating">
+                                            <input type="text" name="username" placeholder="Username" class="form-control my-3">
+                                            <label for="floatingInputValue">Nama</label>
+                                        </div>
+                                        <div class="form-floating">
+                                            <input type="text" name="password" placeholder="Password" class="form-control my-3">
+                                            <label for="floatingInputValue">Email</label>
+                                        </div>
+                                        <div class="form-floating">
+                                            <input type="text" name="password" placeholder="Password" class="form-control my-3">
+                                            <label for="floatingInputValue">Negara</label>
+                                        </div>
+                                        <div>
+                                            <label>Kategori:</label>
+                                        </div>
+                                        <div class="container" >
+                                          <div class="form-check" >
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                              Tunggal Putra
+                                            </label>
+                                          </div>
+                                          <div class="form-check" >
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" >
+                                            <label class="form-check-label" for="flexCheckDefault" >
+                                              Tunggal Putri
+                                            </label>
+                                          </div>
+                                          <div class="form-check" >
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" >
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                              Ganda Putra
+                                            </label>
+                                          </div>
+                                          <div class="form-check" >
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" >
+                                            <label class="form-check-label" for="flexCheckDefault" >
+                                              Ganda Putri
+                                            </label>
+                                          </div>
+                                          <div class="form-check" >
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" >
+                                            <label class="form-check-label" for="flexCheckDefault" >
+                                              Ganda Campuran
+                                            </label>
+                                        </div>
+                                    </div>
+                                        <br>
+                                        <div >
+                                            <div class="row">
+                                                    <form>
+                                                        <div class="form-group">
+                                                            <label style= "float:left" for="datepicker">Tanggal Mulai:</label>
+                                                            <input type="text" id="datepicker" class="datepicker form-control" placeholder="Select a date">
+                                                        </div>
+                                                    </form>
+                                            
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div  style="text-align: center;">
+                                            <input class="btn login_btn btn-primary mx-auto m-1" type="submit" value="Daftar">     
+                                        </div>
+                                    </form>     
+                                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap Datepicker JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+                                    <script>
+                                        $(document).ready(function() {
+                                            $('#datepicker').datepicker();
+                                        });
+                                    </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock content %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block meta %}
+<title>Daftar Sponsor</title>
+<link rel="stylesheet">
+{% endblock meta %}
+
+{% block content %}
+<body>
+    <div class="container p-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-5">
+                <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                    <div class="card-body p=5 text-center">
+                        <div class="daftar-sponsor">
+                            <h1 class="title fw-bold">Daftar Sponsor</h1>
+
+                            <form method="POST" action="">
+                                {% csrf_token %}
+                                <div class="form-floating">
+                                    <input type="text" name="nama" placeholder="Nama Sponsor" class="form-control my-3">
+                                    <label for="floatingInputValue">Nama Sponsor</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="date" name="tgl_mulai" placeholder="Tanggal Mulai" class="form-control my-3">
+                                    <label for="floatingInputValue">Tanggal Mulai</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="date" name="tgl_selesai" placeholder="Tanggal Selesai" class="form-control my-3">
+                                    <label for="floatingInputValue">Tanggal Selesai</label>
+                                </div>
+                                <div>
+                                    <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock content %}
