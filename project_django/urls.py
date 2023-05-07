@@ -22,4 +22,6 @@ urlpatterns = [
     path('dashboard/', include('dashboard.urls')),
     path('authentication/', include('authentication.urls')),
     path('test_kualifikasi/', include('test_kualifikasi.urls')),
+    path('daftar_event/', include('daftar_event.urls')),
+    path('enrolled_event/', include('enrolled_event.urls')),
 ]

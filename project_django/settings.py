@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'dashboard',
     'authentication',
     'test_kualifikasi',
+    'daftar_event',
 ]
 
 MIDDLEWARE = [
