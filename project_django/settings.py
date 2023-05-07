@@ -39,9 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'example_app',
     'sponsor',
-    'pelatih'
+    'pelatih',
+    'home',
+    'dashboard',
+    'authentication',
+    'test_kualifikasi',
 ]
 
 MIDDLEWARE = [
