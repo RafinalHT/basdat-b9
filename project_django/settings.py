@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'authentication',
     'test_kualifikasi',
     'daftar_event',
+    'enrolled_event',
 ]
 
 MIDDLEWARE = [
