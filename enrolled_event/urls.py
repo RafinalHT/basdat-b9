@@ -4,5 +4,5 @@ from enrolled_event.views import *
 app_name = 'enrolled_event'
 
 urlpatterns = [
-    path('enrolled_event/', enrolled_event_view, name='enrolled_event'),
+    path('', enrolled_event_view, name='enrolled_event'),
 ]

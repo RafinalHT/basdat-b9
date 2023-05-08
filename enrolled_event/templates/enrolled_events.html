@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hasil Pertandingan Event</title>
+{% endblock meta %}
+
+{% block content %}
+
+<head>
+    <style>
+        .navbar-nav {
+            float: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        body {
+			font-family: Arial, sans-serif;
+			background-color: #F5F5F5;
+            text-align:center;
+		}
+		.container {
+			display: flex;
+            flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			margin: 0 auto;
+		}
+		
+		.card {
+			background-color: #FFFFFF;
+			border-radius: 10px;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+			margin: 10px;
+			padding: 20px;
+			width: 400px;
+			height: auto;
+			text-align: center;
+			cursor: pointer;
+			transition: transform 0.2s ease-in-out;
+		}
+		
+		.card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+		}
+		
+		.card h2 {
+			font-size: 24px;
+			font-weight: bold;
+			margin-top: 0;
+			color: #333333;
+		}
+		
+		.card p {
+			font-size: 16px;
+			color: #666666;
+			margin: 10px;
+		}
+		
+		.card span {
+			font-size: 14px;
+			color: #999999;
+			margin: 10px;
+		}
+        .btn {
+            margin: 15px;
+            max-width: 300px;
+          }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Atlet-->
+    <!--meta name="viewport" content="width=device-width, initial-scale=1"-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Babadu - Atlet</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Dashboard</a>
+              </li>
+           
+              <li class="nav-item">
+                <a class="nav-link" href="#">Tes Kualifikasi</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="#">Daftar Event</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="#">Enrolled Event</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="#">Daftar Sponsor</a>
+              </li>
+              
+              </div>
+            </ul>
+            <div class="topnav">
+              
+                <a class="btn btn-danger" href="#" role="button">Logout</a>
+          </div>
+        </div>
+      </nav>
+    <br></br>
+    <h3>ENROLLED EVENTS</h3>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>Event 2</h2>
+            </div>
+            <div class="card-body">
+                <p>Stadium: Stadium 3</p>
+                <p>Prize Money: $1,500,000</p>
+                <p>SuperSeries 1000</p>
+                <p>Start Date: 26 April 2022</p>
+                <p>End Date: 30 Mei 2022</p>
+                <p>Capacity: 500,000</p>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary">Unenroll
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h2>Event 3</h2>
+            </div>
+            <div class="card-body">
+                <p>Stadium: Stadium 5</p>
+                <p>Prize Money: $1,000,000</p>
+                <p>SuperSeries 750</p>
+                <p>Start Date: 12 Juni 2023</p>
+                <p>End Date: 24 Juli 2023</p>
+                <p>Capacity: 400,000</p>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary">Unenroll</button>
+            </div>
+        </div>
+    </div>
+		
+
+</body>
+{% endblock content %}
