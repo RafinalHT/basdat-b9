@@ -15,19 +15,19 @@
                         <div class = "login">
                             
                             <h1 class="title fw-bold">Log In</h1>
-
+                            <div style="color: red;">{{Error}}</div>
                                     <form method="POST" action="">
                                         {% csrf_token %}
                                         <div class="form-floating">
-                                            <input type="text" name="username" placeholder="Username" class="form-control my-3">
+                                            <input type="text" name="nama" placeholder="Username" class="form-control my-3">
                                             <label for="floatingInputValue">Username</label>
                                         </div>
                                         <div class="form-floating">
-                                            <input type="password" name="password" placeholder="Password" class="form-control my-3">
+                                            <input type="text" name="email" placeholder="Email" class="form-control my-3">
                                             <label for="floatingInputValue">Email</label>
                                         </div>
                                         
-                                        <input class="btn login_btn btn-primary mx-auto m-1" type="submit" value="Login">     
+                                        <input class="btn login_btn btn-primary mx-auto m-1" type="submit" value="Log in">     
                                     </form>     
                     </div>
                 </div>

@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 def main(request):
     # Temporary role authorization logic
     email = 'babadu@ui.ac.id'
-    is_atlet = True
+    is_atlet = False
     is_pelatih = False
     is_umpire = False
     
