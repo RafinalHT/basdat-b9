@@ -1,57 +1,66 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block meta %}
+{% extends 'base.html' %} {% load static %} {% block meta %}
 <title>Form Data Kualifikasi</title>
-<link rel="stylesheet">
-{% endblock meta %}
-
-{% block content %}
+<link rel="stylesheet" />
+{% endblock meta %} {% block content %}
 <body>
-    <div class="container p-5 h-100">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-xl-8">
-                <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
-                    <div class="card-body p-5">
-                        <div class = "login">
-                        <h1 class="title fw-bold text-center">Form Data Kualifikasi</h1>
-                            <form method="POST" action="">
-                                {% csrf_token %} 
-                                <div class="form-floating">
-                                    <input type="text" name="username" placeholder="Username" class="form-control my-3">
-                                    <label for="floatingInputValue">Nomor batch:</label>
-                                </div>
-                                <div>
-                                    <label for="tempat">Tempat pelaksanaan:</label>
-                                    <select name="tempat" id="tempat">
-                                        <option value="1">Amerika Serikat</option>
-                                        <option value="2">Australia</option>
-                                        <option value="3">China</option>
-                                        <option value="4">Hong Kong</option>
-                                        <option value="5">Inggris</option>
-                                        <option value="6">Indonesia</option>
-                                        <option value="7">India</option>
-                                        <option value="8">Taiwan</option>
-                                    </select>
-                                </div>
-                                <br>
-                                <div>
-                                    <label for="tanggal">Tanggal pelaksanaan:</label>
-                                    <select name="tanggal" id="tanggal">
-                                        <option value="1">15 Juli 2022</option>
-                                        <option value="2">21 Juli 2023</option>
-                                        <option value="3">10 Desember 2022</option>
-                                    </select>
-                                </div>
-                                <br>
-                                <div style="text-align: center;">
-                                    <a class="btn btn-primary" href="{% url 'tes_kualifikasi:pertanyaan' %}" role="button">Next</a>
-                                </div>
-                            </form>     
-                        </div>
-                    </div>
+  <div class="container p-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-8">
+        <div
+          class="card bg-white text-dark shadow-lg border-0"
+          style="border-radius: 1rem"
+        >
+          <div class="card-body p-5">
+            <div class="login">
+              <h1 class="title fw-bold text-center">Form Data Kualifikasi</h1>
+              <form method="POST" action="">
+                {% csrf_token %}
+                <div class="form-floating">
+                  <input
+                    type="text"
+                    name="username"
+                    placeholder="Username"
+                    class="form-control my-3"
+                  />
+                  <label for="floatingInputValue">Nomor batch:</label>
                 </div>
+                <div>
+                  <label for="tempat">Tempat pelaksanaan:</label>
+                  <select name="tempat" id="tempat">
+                    <option value="1">Amerika Serikat</option>
+                    <option value="2">Australia</option>
+                    <option value="3">China</option>
+                    <option value="4">Hong Kong</option>
+                    <option value="5">Inggris</option>
+                    <option value="6">Indonesia</option>
+                    <option value="7">India</option>
+                    <option value="8">Taiwan</option>
+                  </select>
+                </div>
+                <br />
+                <div>
+                  <label for="tanggal">Tanggal pelaksanaan:</label>
+                  <select name="tanggal" id="tanggal">
+                    <option value="1">15 Juli 2022</option>
+                    <option value="2">21 Juli 2023</option>
+                    <option value="3">10 Desember 2022</option>
+                  </select>
+                </div>
+                <br />
+                <div style="text-align: center">
+                  <a
+                    class="btn btn-primary"
+                    href="{% url 'tes_kualifikasi:pertanyaan' %}"
+                    role="button"
+                    >Next</a
+                  >
+                </div>
+              </form>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </body>
 {% endblock content %}

@@ -27,27 +27,27 @@
           {% endif %}
           {% if request.session.is_atlet %}
           <li class="nav-item">
-            <a class="nav-link" href="#">Daftar Event</a>
+            <a class="nav-link" href="{% url 'daftar_event:pilih_event' %}">Daftar Event</a>
           </li>
           {% endif %}
           {% if request.session.is_atlet %}
           <li class="nav-item">
-            <a class="nav-link" href="#">Enrolled Event</a>
+            <a class="nav-link" href="{% url 'enrolled_event:enrolled_event' %}">Enrolled Event</a>
           </li>
           {% endif %}
           {% if request.session.is_atlet %}
           <li class="nav-item">
-            <a class="nav-link" href="#">Daftar Sponsor</a>
+            <a class="nav-link" href="{% url 'sponsor:daftar_sponsor' %}">Daftar Sponsor</a>
           </li>
           {% endif %}
           {% if request.session.is_pelatih or request.session.is_umpire%}
           <li class="nav-item">
-            <a class="nav-link" href="#">Daftar Atlet</a>
+            <a class="nav-link" href="{% url 'pelatih:daftar_atlet_pelatih' %}">Daftar Atlet</a>
           </li>
           {% endif %}
           {% if request.session.is_pelatih %}
           <li class="nav-item">
-            <a class="nav-link" href="#">List Atlet</a>
+            <a class="nav-link" href="{% url 'pelatih:list_atlet' %}">List Atlet</a>
           </li>
           {% endif %}
           {% if request.session.is_umpire %}
@@ -57,7 +57,7 @@
           {% endif %}
           {% if request.session.is_umpire %}
           <li class="nav-item">
-            <a class="nav-link" href="#">Hasil Pertandingan</a>
+            <a class="nav-link" href="">Hasil Pertandingan</a>
           </li>
           {% endif %}
           
@@ -66,7 +66,7 @@
         </ul>
         <div class="topnav">
           
-            <a class="btn btn-danger" href="#" role="button">Logout</a>
+            <a class="btn btn-danger" href="{% url 'authentication:logout' %}" role="button">Logout</a>
       </div>
     </div>
   </nav>
@@ -78,5 +78,10 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
+    
+    .btn {
+            margin: 15px;
+            max-width: 300px;
+          }
 </style>
  

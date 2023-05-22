@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ExampleAppConfig(AppConfig):
+class DaftarEventConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'example_app'
+    name = 'daftar_event'

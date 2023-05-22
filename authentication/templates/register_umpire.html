@@ -14,18 +14,19 @@
                     <div class="card-body p-5 text-center">
                         <div class = "login">
                             <h1 class="title fw-bold">Form Registrasi Umpire</h1>
+                            <div style="color: red;">{{error}}</div>
                                     <form method="POST" action="">
                                         {% csrf_token %}
                                         <div class="form-floating">
-                                            <input type="text" name="username" placeholder="Username" class="form-control my-3">
+                                            <input type="text" name="nama" placeholder="Nama" class="form-control my-3" required>
                                             <label for="floatingInputValue">Nama</label>
                                         </div>
                                         <div class="form-floating">
-                                            <input type="text" name="password" placeholder="Password" class="form-control my-3">
+                                            <input type="text" name="email" placeholder="Email" class="form-control my-3" required>
                                             <label for="floatingInputValue">Email</label>
                                         </div>
                                         <div class="form-floating">
-                                            <input type="text" name="password" placeholder="Password" class="form-control my-3">
+                                            <input type="text" name="negara" placeholder="Negara" class="form-control my-3" required>
                                             <label for="floatingInputValue">Negara</label>
                                         </div>
                                         

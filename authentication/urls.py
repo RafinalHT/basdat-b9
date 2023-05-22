@@ -9,4 +9,6 @@ urlpatterns = [
     path('register_pelatih/', register_pelatih, name='register_pelatih'),
     path('register_atlet/', register_atlet, name='register_atlet'),
     path('register_umpire/', register_umpire, name='register_umpire'),
+    path('logout/', logout, name='logout'),
+
 ]

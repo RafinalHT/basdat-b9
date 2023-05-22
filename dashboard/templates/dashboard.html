@@ -6,6 +6,7 @@
 {% endblock meta %}
 
 {% block content %}
+
 {% if request.session.is_atlet %}
 <div class="container p-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -14,17 +15,17 @@
                 <div class="card-body p-5">
                     <h1 class="title fw-bold text-center">Profile Information</h1>
                     <hr>
-                    <p class="card-text"><strong>Name:</strong> Olivia Rodrigo</p>
-                    <p class="card-text"><strong>Negara: </strong> Canada</p>
-                    <p class="card-text"><strong>Email:</strong> orodrigo@gmail.com</p>
-                    <p class="card-text"><strong>Tanggal Lahir:</strong> 20 February 2003</p>
-                    <p class="card-text"><strong>Play:</strong> Right</p>
-                    <p class="card-text"><strong>Tinggi Badan:</strong> 165</p>
-                    <p class="card-text"><strong>Jenis Kelamin:</strong> Putri</p>
-                    <p class="card-text"><strong>Pelatih:</strong> Bruce Lee</p>
-                    <p class="card-text"><strong>Status:</strong> Qualified</p>
-                    <p class="card-text"><strong>World Rank:</strong> 2</p>
-                    <p class="card-text"><strong>Total Poin:</strong> John Doe</p>
+                    <p class="card-text"><strong>Name:</strong> {{data.nama}}</p>
+                    <p class="card-text"><strong>Negara: </strong> {{ data.negaraAsal}}</p>
+                    <p class="card-text"><strong>Email:</strong> {{data.email}}</p>
+                    <p class="card-text"><strong>Tanggal Lahir:</strong> {{data.tanggalLahir }}</p>
+                    <p class="card-text"><strong>Play:</strong> {{data.play}}</p>
+                    <p class="card-text"><strong>Tinggi Badan:</strong> {{ data.height}}</p>
+                    <p class="card-text"><strong>Jenis Kelamin:</strong> {{data.jenisKelamin}}</p>
+                    <p class="card-text"><strong>Pelatih:</strong> {{data.pelatih}}</p>
+                    <p class="card-text"><strong>Status:</strong> {{data.status}}</p>
+                    <p class="card-text"><strong>World Rank:</strong> {{data.worldRank}}</p>
+                    <p class="card-text"><strong>Total Poin:</strong> {{data.poin}}</p>
                 </div>
             </div>
         </div>
@@ -39,11 +40,10 @@
                 <div class="card-body p-5">
                     <h1 class="title fw-bold text-center">Profile Information</h1>
                     <hr>
-                    <p class="card-text"><strong>Name:</strong> Bruce Lee</p>
-                    <p class="card-text"><strong>Negara: </strong> Canada</p>
-                    <p class="card-text"><strong>Email:</strong> bruceee@gmail.com</p>
-                    <p class="card-text"><strong>Spesialisasi Kategori:</strong> Ganda Putra</p>
-                    <p class="card-text"><strong>Tanggal Mulai:</strong> 9 Maret 2010</p>
+                    <p class="card-text"><strong>Name:</strong> {{data.nama}}</p>
+                    <p class="card-text"><strong>Email:</strong> {{data.email}}</p>
+                    <p class="card-text"><strong>Spesialisasi Kategori:</strong> {{data.spesialisasi}}</p>
+                    <p class="card-text"><strong>Tanggal Mulai:</strong> {{data.tanggalMulai}}</p>
                 </div>
             </div>
         </div>
@@ -58,9 +58,9 @@
                 <div class="card-body p-5">
                     <h1 class="title fw-bold text-center">Profile Information</h1>
                     <hr>
-                    <p class="card-text"><strong>Name:</strong> John Legend</p>
-                    <p class="card-text"><strong>Negara</strong> Afrika</p>
-                    <p class="card-text"><strong>Email:</strong> iamlegend@gmail.com</p>
+                    <p class="card-text"><strong>Name:</strong> {{data.nama}}</p>
+                    <p class="card-text"><strong>Negara</strong> {{data.negara}}</p>
+                    <p class="card-text"><strong>Email:</strong> {{data.email}}</p>
                 </div>
             </div>
         </div>
