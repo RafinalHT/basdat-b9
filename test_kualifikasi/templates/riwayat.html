@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block meta %}
+<title>Riwayat Ujian</title>
+<link rel="stylesheet">
+{% endblock meta %}
+
+{% block content %}
+<body>
+    <div class="container p-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                    <div class="card-body p=5 text-center">
+                        <div class="list-atlet">
+                            <h1 class="title fw-bold mb-5">Riwayat Ujian Kualifikasi</h1>
+                            {% if status %}
+                            <p>Tidak ada Riwayat Ujian Kualifikasi</p>
+                            {% else %}
+                            <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        {% if request.session.is_umpire %}
+                                        <th scope="col">Nama Atlet</th>
+                                        {% endif %}
+                                        <th scope="col">Tahun</th>
+                                        <th scope="col">Batch</th>
+                                        <th scope="col">Tempat Pelaksanaan</th>
+                                        <th scope="col">Tanggal Pelaksanaan</th>
+                                        <th scope="col">Hasil</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for i in list %}
+                                    <tr>
+                                        {% if request.session.is_umpire %}
+                                        <td>{{ i.nama }}</td>
+                                        {% endif %}
+                                        <td>{{ i.tahun }}</td>
+                                        <td>{{ i.batch }}</td>
+                                        <td>{{ i.tempat }}</td>
+                                        <td>{{ i.tanggal }}</td>
+                                        <td>{{ i.hasil }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            {% endif %}
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock content %}
