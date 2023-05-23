@@ -59,26 +59,24 @@ def register_atlet(request):
         jenis_kelamin = request.POST.get('jenis_kelamin')
         id = uuid.uuid4()
         context = {}
-        check =query.query(f"select id from member where email = '{email}'")
-        if check==[]:
-            response = query.query(
-            f"""insert into member (id,nama,email)
-            values ('{id}','{nama}','{email}')""")
-        
-            if type(response) is not str:
-                print(1)
-                return HttpResponse(f"Error: {response}")
-                
-            
-            response = query.query(
-            f"""insert into atlet(id, tgl_lahir, negara_asal, play_right, height, jenis_kelamin)
-            values ('{id}','{tanggal_lahir}','{negara}', '{eval(play)}', '{tinggi_badan}', '{eval(jenis_kelamin)}')""")
-        
-            if type(response) is not str:
-                return HttpResponse(f"Error: {response}")
-        else:
+        response = query.query(
+        f"""insert into member (id,nama,email)
+        values ('{id}','{nama}','{email}')""")
+    
+        if type(response) is not str:
             context['error'] = 'Error: Email sudah terdaftar' 
             return render(request, "register_atlet.html", context)
+
+                
+            
+        response = query.query(
+        f"""insert into atlet(id, tgl_lahir, negara_asal, play_right, height, jenis_kelamin)
+        values ('{id}','{tanggal_lahir}','{negara}', '{eval(play)}', '{tinggi_badan}', '{eval(jenis_kelamin)}')""")
+        print(response)
+        
+        if type(response) is not str:
+            return HttpResponse(f"Error: {response}")
+        
 
         return redirect("authentication:login")
     return render(request, "register_atlet.html")
@@ -95,34 +93,30 @@ def register_pelatih(request):
         print(tanggal_mulai)
         id = uuid.uuid4()
         context = {}
-        check =query.query(f"select id from member where email = '{email}'")
-        if check==[]:
-            response = query.query(
-            f"""insert into member (id,nama,email)
-            values ('{id}','{nama}','{email}')""")
-        
-            if type(response) is not str:
-                return HttpResponse(f"Error: {response}")
-                
-            
-            response = query.query(
-            f"""insert into pelatih(id, tanggal_mulai)
-            values ('{id}','{tanggal_mulai}')""")
-        
-            if type(response) is not str:
-                return HttpResponse(f"Error: {response}")
-            print(kategori)
-            for i in kategori:
-                print(i)
-                response = query.query(
-                f"""insert into pelatih_spesialisasi(id_pelatih, id_spesialisasi)
-                select '{id}', id from spesialisasi where spesialisasi='{i}'""")
-        
-            if type(response) is not str:
-               return HttpResponse(f"Error: {response}")
-        else:
+        response = query.query(
+        f"""insert into member (id,nama,email)
+        values ('{id}','{nama}','{email}')""")
+    
+        if type(response) is not str:
             context['error'] = 'Error: Email sudah terdaftar' 
             return render(request, "register_pelatih.html", context)
+            
+        response = query.query(
+        f"""insert into pelatih(id, tanggal_mulai)
+        values ('{id}','{tanggal_mulai}')""")
+    
+        if type(response) is not str:
+            return HttpResponse(f"Error: {response}")
+        print(kategori)
+        for i in kategori:
+            print(i)
+            response = query.query(
+            f"""insert into pelatih_spesialisasi(id_pelatih, id_spesialisasi)
+            select '{id}', id from spesialisasi where spesialisasi='{i}'""")
+    
+            if type(response) is not str:
+                return HttpResponse(f"Error: {response}")
+            
         
         return redirect("authentication:login")
     return render(request, "register_pelatih.html")
@@ -138,26 +132,22 @@ def register_umpire(request):
         print(negara)
         id = uuid.uuid4()
         context = {}
-        check =query.query(f"select id from member where email = '{email}'")
-        if check==[]:
-            response = query.query(
-            f"""insert into member (id,nama,email)
-            values ('{id}','{nama}','{email}')""")
-            
-            if type(response) is not str:
-                return HttpResponse(f"Error: {response}")
-                
-            
-            response = query.query(
-            f"""insert into umpire(id, negara)
-            values ('{id}','{negara}')""")
-        
-            if type(response) is not str:
-                return HttpResponse(f"Error: {response}")
-        else:
+        response = query.query(
+        f"""insert into member (id,nama,email)
+        values ('{id}','{nama}','{email}')""")
+    
+        if type(response) is not str:
             context['error'] = 'Error: Email sudah terdaftar' 
             return render(request, "register_umpire.html", context)
-
+                
+            
+        response = query.query(
+        f"""insert into umpire(id, negara)
+        values ('{id}','{negara}')""")
+    
+        if type(response) is not str:
+            return HttpResponse(f"Error: {response}")
+       
         
         
         return redirect("authentication:login")
