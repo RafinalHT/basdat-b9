@@ -6,7 +6,6 @@
 {% endblock meta %}
 
 {% block content %}
-
 {% if request.session.is_atlet %}
 <div class="container p-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -68,3 +67,11 @@
 </div>
   {% endif %}
 {% endblock content %}
+<style>
+    .card {
+    position: relative;
+    z-index: 1; /* Set lower z-index value to keep the card below the dropdown */
+  }
+</style>
+
+
