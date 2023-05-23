@@ -32,18 +32,36 @@
           </li>
           {% endif %}
           {% if request.session.is_atlet %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'daftar_event:pilih_event' %}">Daftar Event</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Event
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Daftar Event</a>
+              <a class="dropdown-item" href="#">Enrolled Event</a>
+            </div>
           </li>
           {% endif %}
           {% if request.session.is_atlet %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'enrolled_event:enrolled_event' %}">Enrolled Event</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Sponsor
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Daftar Sponsor</a>
+              <a class="dropdown-item" href="#">List Sponsor</a>
+            </div>
           </li>
           {% endif %}
-          {% if request.session.is_atlet %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'sponsor:daftar_sponsor' %}">Daftar Sponsor</a>
+          
+          {% if request.session.is_umpire %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Atlet
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Daftar Atlet</a>
+            </div>
           </li>
           {% endif %}
           {% if request.session.is_umpire %}
@@ -58,27 +76,29 @@
             </div>
           </li>
           {% endif %}
-          {% if request.session.is_pelatih or request.session.is_umpire%}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'pelatih:daftar_atlet_pelatih' %}">Daftar Atlet</a>
+          {% if request.session.is_umpire %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Event
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">List Partai Kompetisi</a>
+            </div>
           </li>
           {% endif %}
+
           {% if request.session.is_pelatih %}
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'pelatih:list_atlet' %}">List Atlet</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Latih Atlet
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Create Latih Atlet</a>
+              <a class="dropdown-item" href="#">List Atlet Dilatih</a>
+            </div>
           </li>
           {% endif %}
          
-          {% if request.session.is_umpire %}
-          <li class="nav-item">
-            <a class="nav-link" href="#">Lihat Event</a>
-          </li>
-          {% endif %}
-          {% if request.session.is_umpire %}
-          <li class="nav-item">
-            <a class="nav-link" href="">Hasil Pertandingan</a>
-          </li>
-          {% endif %}
           {% if request.session.is_atlet or request.session.is_pelatih or request.session.is_umpire %}
           <li class="nav-item">
             <a class="nav-link"href="{% url 'authentication:logout' %}" >Logout</a>
@@ -93,6 +113,7 @@
   
 .navbar {
   z-index: 999;
+  height: 80px; 
 }
 .navbar a:hover {
   color: black;
@@ -100,10 +121,10 @@
 .navbar a.active {
   color: black;
 }
-.navbar .nav-item.active .dropdown-item {
-  background-color: #f8f9fa; /* Customize the background color as needed */
+.dropdown-item.active, .dropdown-item:active {
+  color:rgb(255, 255, 255)!important; 
+  background-color: #0d6efd;
 }
-    
 </style>
 <script type="text/javascript" src="js/bootstrap/bootstrap-dropdown.js"></script>
 <script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
