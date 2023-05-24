@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hasil Pertandingan Event</title>
+{% endblock meta %}
+
+{% block content %}
+
+<head>
+    <style>
+        .navbar-nav {
+            float: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        body {
+			font-family: Arial, sans-serif;
+			background-color: #F5F5F5;
+            text-align:center;
+			margin: 0 auto;
+		}
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			margin: 0 auto;
+		}
+		
+		.card {
+			background-color: #FFFFFF;
+			border-radius: 10px;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+			margin: 10px;
+			padding: 20px;
+			width: 100%;
+			align-items: center;
+			text-align: center;
+			cursor: pointer;
+			transition: transform 0.2s ease-in-out;
+		}
+		
+		.card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+		}
+		
+		.card h2 {
+			font-size: 24px;
+			font-weight: bold;
+			margin-top: 0;
+			color: #333333;
+		}
+		
+		.card p {
+			font-size: 16px;
+			color: #666666;
+			margin: 10px;
+		}
+		
+		.card span {
+			font-size: 14px;
+			color: #999999;
+			margin: 10px;
+		}
+        table {
+			background-color:#FFFFFF;
+			border-collapse: collapse;
+			width: 70%;
+		  }
+		  
+		  th, td {
+			text-align: center;
+			padding: 8px;
+			border: 1px solid #ddd;
+		  }
+		  
+		  th {
+			background-color: #f2f2f2;
+			font-weight: bold;
+		  }
+		  
+		  tr:nth-child(even) {
+			background-color: #f2f2f2;
+		  }
+          .btn {
+            margin: 15px;
+            max-width: 300px;
+          }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Umpire-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Babadu - Umpire</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Dashboard</a>
+              </li>
+           
+              <li class="nav-item">
+                <a class="nav-link" href="#">Daftar Atlet</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="#">Lihat Event</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="#">Hasil Pertandingan</a>
+              </li>
+              
+              
+              </div>
+            </ul>
+            <div class="topnav">
+              
+                <a class="btn btn-danger" href="#" role="button">Logout</a>
+          </div>
+        </div>
+      </nav>
+    
+    <!-- List Hasil Pertandingan -->
+    <br></br>
+    <h3>HASIL PERTANDINGAN</h3>
+	<div class="container">
+		<div class="card">
+			<h2>PERTANDINGAN JUARA 3</h2>
+			<h3>[00.00]</h3>
+			<div class="container">
+                <table>
+                    <tr>
+                        <th>Tim 1</th>
+                        <th>Tim 2</th>
+                        <th>Skor Tim 1</th>
+                        <th>Action Tim 1</th>
+                        <th>Skor Tim 2</th>
+                        <th>Action Tim 2</th>
+                    </tr>
+                    <tr>
+                        <td>D</td>
+                        <td>E</td>
+                        <td>1</td>
+                        <td>
+                            <button class="btn btn-danger">-</button>
+                            <button class="btn btn-primary">+</button>
+                        </td>
+                        <td>0</td>
+                        <td>
+                            <button class="btn btn-danger">-</button>
+                            <button class="btn btn-primary">+</button>
+                        </td>
+                    </tr>
+                    
+                </table>
+            </div>
+        
+		</div>
+
+        <div class="card">
+			<h2>PERTANDINGAN FINAL</h2>
+			<h3>[00.00]</h3>
+			<div class="container">
+                <table>
+                    <tr>
+                        <th>Tim 1</th>
+                        <th>Tim 2</th>
+                        <th>Skor Tim 1</th>
+                        <th>Action Tim 1</th>
+                        <th>Skor Tim 2</th>
+                        <th>Action Tim 2</th>
+                    </tr>
+                    <tr>
+                        <td>A</td>
+                        <td>G</td>
+                        <td>1</td>
+                        <td>
+                            <button class="btn btn-danger">-</button>
+                            <button class="btn btn-primary">+</button>
+                        </td>
+                        <td>0</td>
+                        <td>
+                            <button class="btn btn-danger">-</button>
+                            <button class="btn btn-primary">+</button>
+                        </td>
+                    </tr>
+                    
+                </table>
+            </div>
+            <button class="btn btn-primary">DONE</button>
+        
+		</div>
+    </div>
+
+</body>
+{% endblock content %}

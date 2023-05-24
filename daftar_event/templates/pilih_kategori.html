@@ -1,0 +1,88 @@
+{% extends 'base.html' %} {% block meta %}
+<title>Daftar Event</title>
+{% endblock meta %} {% block content %}
+<head>
+  <title>Daftar Event</title>
+  <link rel="stylesheet" />
+  <style>
+    table,
+    th,
+    td {
+      text-align: center;
+    }
+    .table {
+      margin: 0 auto;
+      width: 80%;
+    }
+    h5{
+        text-align: center;
+    }
+    .navbar-nav {
+            float: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        body {
+			font-family: Arial, sans-serif;
+			background-color: #F5F5F5;
+            text-align:center;
+		}
+		.container {
+			display: flex;
+            flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			margin: 0 auto;
+		}
+  </style>
+</head>
+<body>
+ 
+    <h1 style="text-align: center;">PILIH KATEGORI</h1>
+  <h5>Event: Event 2</h5>
+  <h5>Hadiah: $3.000.000</h5>
+  <h5>Tanggal Mulai: 12 Juni 2022</h5>
+  <h5>Tanggal Selesai: 24 Juli 2022</h5>
+  <h5>Kategori: S1000</h5>
+  <h5>Kapasitas: 17/20</h5>
+  <h5>Stadium: Stadium 3</h5>
+  <table class="table">
+    <tr>
+      <th>Kategori</th>
+      <th>Partner</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td>Tunggal Putra</td>
+      <td>-</td>
+      <td>
+        <button type="button" class="btn btn-primary">Join</button>
+      </td>
+    </tr>
+    <tr>
+        <td>Ganda Putra</td>
+        <td><select name="partner" id="partner">
+          <option value="jonathan">Fernando</option>
+          <option value="lim">Fikri</option>
+        </select></td>
+        <td>
+          <button type="button" class="btn btn-primary">Join</button>
+        </td>
+      </tr>
+      <tr>
+        <td>Ganda Campuran</td>
+        <td><select name="partner" id="partner">
+          <option value="jonathan">Fulan</option>
+          <option value="lim">Kirby</option>
+        </select></td>
+        <td>
+          <button type="button" class="btn btn-primary">Join</button>
+        </td>
+      </tr> 
+    </tr>
+  </table>
+</body>
+
+{% endblock content %}
