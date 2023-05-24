@@ -155,6 +155,73 @@ def partai_kompetisi_event(request):
         return render(request, 'data_partai_kompetisi_event.html', {'data': data})
     else:
         return render(request, 'data_partai_kompetisi_event.html')
+    
+
+def hasil_pertandingan(request):
+    if request.COOKIES['role']=='umpire':
+        nama_event = request.GET.get('nama_event')
+        tahun = request.GET.get('tahun')
+        data_partai_kompetisi_event = query.query(f'''SELECT
+                                                    e.nama_event,
+                                                    e.tahun,
+                                                    e.nama_stadium,
+                                                    STRING_AGG(DISTINCT p.jenis_partai, ', ') AS aggregated_jenis_partai,
+                                                    e.kategori_superseries,
+                                                    e.tgl_mulai,
+                                                    e.tgl_selesai,
+                                                    COUNT(pme.nama_event) AS peserta_count,
+                                                    s.kapasitas,
+                                                    e.total_hadiah
+                                                    FROM
+                                                    event e
+                                                    JOIN
+                                                    partai_kompetisi p ON p.nama_event = e.nama_event AND p.tahun_event = e.tahun
+                                                    JOIN
+                                                    stadium s ON e.nama_stadium = s.nama
+                                                    JOIN
+                                                    peserta_mendaftar_event pme ON pme.nama_event = e.nama_event AND pme.tahun = e.tahun
+                                                    WHERE e.nama_event = '{nama_event}' and e.tahun = {tahun}
+                                                    GROUP BY
+                                                    e.nama_event,
+                                                    e.tahun,
+                                                    e.nama_stadium,
+                                                    e.kategori_superseries,
+                                                    e.tgl_mulai,
+                                                    e.tgl_selesai,
+                                                    s.kapasitas,
+                                                    e.total_hadiah;
+                                                    ''')
+        
+        nama_event = [record[0] for record in data_partai_kompetisi_event]
+        tahun = [record[1] for record in data_partai_kompetisi_event]
+        nama_stadium = [record[2] for record in data_partai_kompetisi_event]
+        aggregated_jenis_partai = [record[3] for record in data_partai_kompetisi_event]
+        kategori_superseries = [record[4] for record in data_partai_kompetisi_event]
+        tgl_mulai = [record[5] for record in data_partai_kompetisi_event]
+        tgl_selesai = [record[6] for record in data_partai_kompetisi_event]
+        peserta_count = [record[7] for record in data_partai_kompetisi_event]
+        kapasitas = [record[8] for record in data_partai_kompetisi_event]
+        total_hadiah = [record[9] for record in data_partai_kompetisi_event]
+
+        data = {
+            'nama_event' : nama_event,
+            'tahun' : tahun,
+            'nama_stadium' : nama_stadium,
+            'aggregated_jenis_partai' : aggregated_jenis_partai,
+            'kategori_superseries' : kategori_superseries,
+            'tgl_mulai' : tgl_mulai,
+            'tgl_selesai' : tgl_selesai,
+            'peserta_count' : peserta_count,
+            'kapasitas' : kapasitas,
+            'total_hadiah' : total_hadiah,
+        }
+
+        print(data)
+
+        return render(request, 'hasil_pertandingan_2.html', {'data': data})
+    else:
+        return render(request, 'hasil_pertandingan_2.html')
+
 
 
 def convert_dict_to_list_k(data_dict):
