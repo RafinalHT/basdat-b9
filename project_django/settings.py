@@ -45,6 +45,12 @@ INSTALLED_APPS = [
     'dashboard',
     'authentication',
     'test_kualifikasi',
+<<<<<<< Updated upstream
+=======
+    'daftar_event',
+    'enrolled_event',
+    'umpire',
+>>>>>>> Stashed changes
 ]
 
 MIDDLEWARE = [
