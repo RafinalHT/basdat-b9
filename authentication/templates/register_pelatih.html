@@ -3,10 +3,6 @@
 {% block meta %}
 <title>Register</title>
 <link rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" />
-
-    <!-- Bootstrap Datepicker CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
 {% endblock meta %}
 
 {% block content %}
@@ -19,51 +15,47 @@
                         <div class = "login">
                             
                             <h1 class="title fw-bold text-center">Form Registrasi Pelatih</h1>
-
-                                    <form method="POST" action="">
-                                        {% csrf_token %}
+                            <div class = "text-center" style="color: red;">{{error}}</div>
+                                <form method="POST" action="">
+                                  {% csrf_token %}
                                         <div class="form-floating">
-                                            <input type="text" name="username" placeholder="Username" class="form-control my-3">
+                                            <input type="text" name="nama" placeholder="Nama" class="form-control my-3" required>
                                             <label for="floatingInputValue">Nama</label>
                                         </div>
                                         <div class="form-floating">
-                                            <input type="text" name="password" placeholder="Password" class="form-control my-3">
+                                            <input type="text" name="email" placeholder="Email" class="form-control my-3" required>
                                             <label for="floatingInputValue">Email</label>
-                                        </div>
-                                        <div class="form-floating">
-                                            <input type="text" name="password" placeholder="Password" class="form-control my-3">
-                                            <label for="floatingInputValue">Negara</label>
                                         </div>
                                         <div>
                                             <label>Kategori:</label>
                                         </div>
                                         <div class="container" >
                                           <div class="form-check" >
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                            <input class="form-check-input" name="kategori" type="checkbox" value="Tunggal Putra" id="flexCheckDefault" >
                                             <label class="form-check-label" for="flexCheckDefault">
                                               Tunggal Putra
                                             </label>
                                           </div>
                                           <div class="form-check" >
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" >
+                                            <input class="form-check-input" name="kategori" type="checkbox" value="Tunggal Putri" id="flexCheckDefault"  >
                                             <label class="form-check-label" for="flexCheckDefault" >
                                               Tunggal Putri
                                             </label>
                                           </div>
                                           <div class="form-check" >
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" >
+                                            <input class="form-check-input" name="kategori" type="checkbox" value="Ganda Putra" id="flexCheckDefault" >
                                             <label class="form-check-label" for="flexCheckDefault">
                                               Ganda Putra
                                             </label>
                                           </div>
                                           <div class="form-check" >
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" >
+                                            <input class="form-check-input" name="kategori" type="checkbox" value="Ganda Putri" id="flexCheckDefault"  >
                                             <label class="form-check-label" for="flexCheckDefault" >
                                               Ganda Putri
                                             </label>
                                           </div>
                                           <div class="form-check" >
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" >
+                                            <input class="form-check-input" name="kategori" type="checkbox" value="Ganda Campuran" id="flexCheckDefault"  >
                                             <label class="form-check-label" for="flexCheckDefault" >
                                               Ganda Campuran
                                             </label>
@@ -71,31 +63,42 @@
                                     </div>
                                         <br>
                                         <div >
-                                            <div class="row">
-                                                    <form>
-                                                        <div class="form-group">
-                                                            <label style= "float:left" for="datepicker">Tanggal Mulai:</label>
-                                                            <input type="text" id="datepicker" class="datepicker form-control" placeholder="Select a date">
-                                                        </div>
-                                                    </form>
-                                            
-                                            </div>
+                                          <div class="form-floating">
+                                            <input type="date" name="tanggal_mulai" placeholder="Tanggal Mulai" class="form-control my-3" required>
+                                            <label for="floatingInputValue">Tanggal Mulai</label>
+                                        </div>
                                         </div>
                                         <br>
                                         <div  style="text-align: center;">
-                                            <input class="btn login_btn btn-primary mx-auto m-1" type="submit" value="Daftar">     
+                                          <input class="btn login_btn btn-primary mx-auto m-1" type="submit" value="Daftar">       
                                         </div>
                                     </form>     
-                                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
-
-    <!-- Bootstrap Datepicker JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+                                   
                                     <script>
-                                        $(document).ready(function() {
-                                            $('#datepicker').datepicker();
-                                        });
-                                    </script>
+                                      // Custom validation function
+                                      function validateForm() {
+                                          const checkboxes = document.querySelectorAll('input[name="kategori"]');
+                                          let checked = false;
+                                          checkboxes.forEach((checkbox) => {
+                                              if (checkbox.checked) {
+                                                  checked = true;
+                                              }
+                                          });
+                                          if (!checked) {
+                                              alert('Please select at least one checkbox.');
+                                              return false;
+                                          }
+                                          return true;
+                                      }
+                                  
+                                      // Attach validation to form submission
+                                      const form = document.querySelector('form');
+                                      form.addEventListener('submit', function (event) {
+                                          if (!validateForm()) {
+                                              event.preventDefault(); // Prevent form submission
+                                          }
+                                      });
+                                  </script>
                     </div>
                 </div>
             </div>

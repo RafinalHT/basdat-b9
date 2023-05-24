@@ -39,18 +39,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'hasil_pertandingan',
+    'pertandingan',
     'sponsor',
     'pelatih',
     'home',
     'dashboard',
     'authentication',
     'test_kualifikasi',
-<<<<<<< Updated upstream
-=======
     'daftar_event',
     'enrolled_event',
     'umpire',
->>>>>>> Stashed changes
 ]
 
 MIDDLEWARE = [
@@ -65,6 +64,23 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'project_django.urls'
+
+DATABASES = {
+     'default': {
+        #'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'BasdatTK123',
+        'HOST': 'db.gzaocvlzrersqdfnkafs.supabase.co',
+        'OPTIONS' : {
+            'options' : '-c search_path=babadu'
+        },
+        'PORT': '5432'
+    }
+}
+SUPABASE_URL = 'https://gzaocvlzrersqdfnkafs.supabase.co'
+SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd6YW9jdmx6cmVyc3FkZm5rYWZzIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQzMzIwNTAsImV4cCI6MTk5OTkwODA1MH0.Wf3tMtxqwzhwfKcDbT14F--fUYk95QWBwdgBD6k48bI'
 
 TEMPLATES = [
     {
@@ -88,12 +104,7 @@ WSGI_APPLICATION = 'project_django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+
 
 if PRODUCTION:
     DATABASES['default'] = dj_database_url.config(
