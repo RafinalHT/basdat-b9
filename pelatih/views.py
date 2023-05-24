@@ -1,4 +1,6 @@
 from django.shortcuts import redirect, render
+from utils import query
+from django.db import connection
 
 from pelatih.forms import AtletPelatihForm
 
@@ -25,3 +27,20 @@ def list_atlet(request):
     ]
     context = {'atlet_list': atlet_list}
     return render(request, 'list_atlet.html', context)
+
+
+def daftar_atlet(request):
+    if request.COOKIES['role']=='umpire':
+        datar_atlet = query.query(f"select a.id, m.nama from member m, atlet a where m.id = a.id;")
+                                                    
+        id = [record[0] for record in datar_atlet]
+        nama = [record[1] for record in datar_atlet]
+        
+        data = {
+            'id' : id,
+            'nama' : nama,
+        }
+
+        return render(request, 'daftar_atlet.html', {'data': data})
+    else:
+        return render(request, 'daftar_atlet.html')
