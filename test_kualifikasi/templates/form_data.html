@@ -1,7 +1,8 @@
 {% extends 'base.html' %} {% load static %} {% block meta %}
-<title>Form Data Kualifikasi</title>
+<title>Form Buat Ujian Kualifikasi</title>
 <link rel="stylesheet" />
 {% endblock meta %} {% block content %}
+
 <body>
   <div class="container p-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -11,7 +12,7 @@
           style="border-radius: 1rem">
           <div class="card-body p-5">
             <div class="login">
-              <h1 class="title fw-bold text-center">Form Data Kualifikasi</h1>
+              <h1 class="title fw-bold text-center">Form Buat Ujian Kualifikasi</h1>
               <div class = "text-center" style="color: red;">{{error}}</div>
               <form method="POST" action="">
                 {% csrf_token %}
@@ -47,9 +48,9 @@
                 alert('Mohon lengkapi semua input.');
                 return false; 
               }
-              if((isNaN(tahun) &&!Number.isInteger(parseInt(tahun)))|| tahun.length != 4){
+              if (!/^\d{4}$/.test(tahun)) {
                 alert('Format tahun salah.');
-                return false; 
+                return false;
               }
               
               return true; 
