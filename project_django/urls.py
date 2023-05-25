@@ -29,4 +29,5 @@ urlpatterns = [
     path('sponsor/', include('sponsor.urls')),
     path('pelatih/', include('pelatih.urls')),
     path('enrolled_partai_kompetisi/', include('enrolled_partai_kompetisi.urls')),
+    path('umpire/', include('umpire.urls')),
 ]

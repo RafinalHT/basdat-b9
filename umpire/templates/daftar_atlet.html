@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>List Atlet</title>
+<link rel="stylesheet">
+{% endblock meta %}
+
+{% block content %}
+<body>
+    {% if request.session.is_umpire %}
+    <div class="container p-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <div class="list-atlet">
+                            <h1 class="title fw-bold mb-5">List Atlet</h1>
+
+                            {% if data_k %}
+                            <h2 class="table-title">Atlet Kualifikasi</h2>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nama</th>
+                                            <th scope="col">Tanggal Lahir</th>
+                                            <th scope="col">Negara Asal</th>
+                                            <th scope="col">Play Right</th>
+                                            <th scope="col">Height</th>
+                                            <th scope="col">World Rank</th>
+                                            <th scope="col">World Tour Rank</th>
+                                            <th scope="col">Jenis Kelamin</th>
+                                            <th scope="col">Total Point</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for record in data_k %}
+                                        <tr>
+                                            <td>{{ record.nama }}</td>
+                                            <td>{{ record.tgl_lahir }}</td>
+                                            <td>{{ record.negara_asal }}</td>
+                                            <td>{{ record.play_right }}</td>
+                                            <td>{{ record.height }}</td>
+                                            <td>{{ record.world_rank }}</td>
+                                            <td>{{ record.world_tour_rank }}</td>
+                                            <td>{{ record.jenis_kelamin }}</td>
+                                            <td>{{ record.total_point }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            {% endif %}
+                            
+                            {% if data_nk %}
+                            <h2 class="table-title">Atlet Non Kualifikasi</h2>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nama</th>
+                                            <th scope="col">Tanggal Lahir</th>
+                                            <th scope="col">Negara Asal</th>
+                                            <th scope="col">Play Right</th>
+                                            <th scope="col">Height</th>
+                                            <th scope="col">World Rank</th>
+                                            <th scope="col">Jenis Kelamin</th>
+                                            <th scope="col">Total Point</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for record in data_nk %}
+                                        <tr>
+                                            <td>{{ record.nama }}</td>
+                                            <td>{{ record.tgl_lahir }}</td>
+                                            <td>{{ record.negara_asal }}</td>
+                                            <td>{{ record.play_right }}</td>
+                                            <td>{{ record.height }}</td>
+                                            <td>{{ record.world_rank }}</td>
+                                            <td>{{ record.jenis_kelamin }}</td>
+                                            <td>{{ record.total_point }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            {% endif %}
+                            
+                            {% if data_g %}
+                            <h2 class="table-title">Atlet Ganda</h2>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID Atlet Ganda</th>
+                                            <th scope="col">Nama Atlet Kualifikasi</th>
+                                            <th scope="col">Nama Atlet Kualifikasi 2</th>
+                                            <th scope="col">Total Point</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for record in data_g %}
+                                        <tr>
+                                            <td>{{ record.id }}</td>
+                                            <td>{{ record.nama_1 }}</td>
+                                            <td>{{ record.nama_2 }}</td>
+                                            <td>{{ record.total_point }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="container p-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <div class="list-atlet">
+                            <h1 class="title fw-bold mb-5">Anda tidak memiliki izin untuk melihat halaman ini</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</body>
+{% endblock content %}
