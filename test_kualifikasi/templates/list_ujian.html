@@ -36,6 +36,7 @@
                                         <td>{{ i.tanggal }}</td>
                                         {% if request.session.is_atlet %}
                                         <form method="POST">
+                                            {% csrf_token %}
                                         <td><button type="submit" class="btn btn-primary" name="action" value="{{i}}">Ikuti</button></td>
                                         </form>
                                         {% endif %}

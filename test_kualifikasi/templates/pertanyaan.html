@@ -17,6 +17,7 @@
                         <div class = "text-center" style="color: red;">{{error}}</div>
                         <hr>
                             <form method="POST" action="">
+                                {% csrf_token %}
                                 <div class="container">
                                     <label>Pada tahun berapa badminton menjadi cabang olahraga Olimpiade?</label>
                                         <div class="form-check">
