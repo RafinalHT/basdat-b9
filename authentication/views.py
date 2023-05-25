@@ -3,6 +3,7 @@ import uuid
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from utils import query
+from django.views.decorators.csrf import csrf_exempt
 
 def get_role(id):
     if query.query(f"select * from pelatih where id = '{id}'"):
@@ -11,7 +12,7 @@ def get_role(id):
         return "atlet"
     elif query.query(f"select * from umpire where id = '{id}'"):
         return "umpire"
-    
+@csrf_exempt 
 def login(request):
     if request.method == "POST":
         nama = request.POST.get("nama")
@@ -43,10 +44,10 @@ def login(request):
             return render(request, "login.html", {"Error": "Nama atau Email salah"})
     return render(request, "login.html")
 
-
+@csrf_exempt
 def register(request):
     return render(request, "register.html")
-
+@csrf_exempt
 def register_atlet(request):
     if request.method == 'POST':
         print(3)
@@ -80,7 +81,7 @@ def register_atlet(request):
 
         return redirect("authentication:login")
     return render(request, "register_atlet.html")
-    
+@csrf_exempt   
 def register_pelatih(request):
     if request.method == 'POST':
         nama = request.POST.get('nama')
@@ -121,7 +122,7 @@ def register_pelatih(request):
         return redirect("authentication:login")
     return render(request, "register_pelatih.html")
            
-
+@csrf_exempt
 def register_umpire(request):
     if request.method == 'POST':
         nama = request.POST.get('nama')
@@ -154,7 +155,7 @@ def register_umpire(request):
     return render(request, "register_umpire.html")
            
     
-
+@csrf_exempt
 def logout(request):
     response = HttpResponseRedirect("/")
     response.delete_cookie('id')
