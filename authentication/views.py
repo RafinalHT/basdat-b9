@@ -44,10 +44,10 @@ def login(request):
             return render(request, "login.html", {"Error": "Nama atau Email salah"})
     return render(request, "login.html")
 
-@csrf_exempt
+
 def register(request):
     return render(request, "register.html")
-@csrf_exempt
+
 def register_atlet(request):
     if request.method == 'POST':
         print(3)
@@ -81,7 +81,7 @@ def register_atlet(request):
 
         return redirect("authentication:login")
     return render(request, "register_atlet.html")
-@csrf_exempt   
+ 
 def register_pelatih(request):
     if request.method == 'POST':
         nama = request.POST.get('nama')
@@ -122,7 +122,7 @@ def register_pelatih(request):
         return redirect("authentication:login")
     return render(request, "register_pelatih.html")
            
-@csrf_exempt
+
 def register_umpire(request):
     if request.method == 'POST':
         nama = request.POST.get('nama')
