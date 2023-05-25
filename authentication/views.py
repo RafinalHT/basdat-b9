@@ -12,6 +12,7 @@ def get_role(id):
         return "atlet"
     elif query.query(f"select * from umpire where id = '{id}'"):
         return "umpire"
+    
 @csrf_exempt 
 def login(request):
     if request.method == "POST":
@@ -81,6 +82,7 @@ def register_atlet(request):
 
         return redirect("authentication:login")
     return render(request, "register_atlet.html")
+
 @csrf_exempt
 def register_pelatih(request):
     if request.method == 'POST':
