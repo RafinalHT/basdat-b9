@@ -7,6 +7,7 @@
 
 {% block content %}
 <body>
+    {% if request.session.is_pelatih %}
     <div class="container p-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-xl-10">
@@ -38,5 +39,20 @@
             </div>
         </div>
     </div>
+    {% else %}
+    <div class="container p-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <div class="list-atlet">
+                            <h1 class="title fw-bold mb-5">Anda tidak memiliki izin untuk melihat halaman ini</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 </body>
 {% endblock content %}

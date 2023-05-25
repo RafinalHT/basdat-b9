@@ -28,6 +28,8 @@ def list_atlet(request):
         data = convert_dict_to_list_a(data)
 
         return render(request, 'list_atlet.html', {'data': data})
+    else:
+        return render(request, 'list_atlet.html')
     
 def convert_dict_to_list_a(data_dict):
     data_list = []
