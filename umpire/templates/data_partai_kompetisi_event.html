@@ -46,11 +46,12 @@
                                                 <div class="link">
                                                   <a href="#">[Mulai]</a>
                                                 </div>
+                                                {% if record.peserta_count == record.kapasitas %}
                                                 <div class="link">
                                                   <a href="/umpire/hasil_pertandingan/?nama_event={{ record.nama_event }}&tahun={{ record.tahun }}">[Hasil Pertandingan]</a>
                                                 </div>
+                                                {% endif %}
                                               </td>
-                                              
                                         </tr>
                                         {% endfor %}
                                     </tbody>
