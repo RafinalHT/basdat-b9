@@ -1,0 +1,75 @@
+{% extends 'base.html' %} {% load static %} {% block meta %}
+<title>Form Buat Ujian Kualifikasi</title>
+<link rel="stylesheet" />
+{% endblock meta %} {% block content %}
+
+<body>
+  <div class="container p-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-8">
+        <div
+          class="card bg-white text-dark shadow-lg border-0"
+          style="border-radius: 1rem">
+          <div class="card-body p-5">
+            <div class="login">
+              <h1 class="title fw-bold text-center">Form Buat Ujian Kualifikasi</h1>
+              <div class = "text-center" style="color: red;">{{error}}</div>
+              <form method="POST" action="">
+                {% csrf_token %}
+                <div class="form-floating">
+                  <input type="text" name="tahun" id = "tahun" placeholder="Tahun" class="form-control my-3"/>
+                  <label for="floatingInputValue">Tahun</label>
+                </div>
+                <div class="form-floating">
+                  <input type="number" name="batch" id = "batch" placeholder="Batch" class="form-control my-3"/>
+                  <label for="floatingInputValue">Batch</label>
+                </div>
+                <div class="form-floating">
+                  <input type="text" name="tempat" id = "tempat" placeholder="Tempat Pelaksanaan" class="form-control my-3"/>
+                  <label for="floatingInputValue">Tempat Pelaksanaan</label>
+                </div>
+                <div class="form-floating">
+                  <input type="date" name="tanggal" id = "tanggal" placeholder="Tanggal Pelaksanaan" class="form-control my-3" >
+                  <label for="floatingInputValue">Tanggal Pelaksanaan</label>
+                </div>
+                <div  style="text-align: center;">
+                  <input class="btn login_btn btn-primary mx-auto m-1" type="submit" value="Buat">       
+                </div>
+              </form>
+              <script>
+              // Custom validation function
+              function validateForm() {
+              var tahun = document.getElementById("tahun").value;
+              var batch = document.getElementById("batch").value;
+              var tempat = document.getElementById("tempat").value;
+              var tanggal = document.getElementById("tanggal").value;
+              console.log(tahun)
+              if (tahun == "" || batch == "" || tempat == "" || tanggal == "") {
+                alert('Mohon lengkapi semua input.');
+                return false; 
+              }
+              if (!/^\d{4}$/.test(tahun)) {
+                alert('Format tahun salah.');
+                return false;
+              }
+              
+              return true; 
+            }
+            
+            
+              // Attach validation to form submission
+              const form = document.querySelector('form');
+              form.addEventListener('submit', function (event) {
+                  if (!validateForm()) {
+                      event.preventDefault(); // Prevent form submission
+                  }
+              });
+            </script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+{% endblock content %}

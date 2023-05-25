@@ -1,0 +1,44 @@
+{% extends 'base_2.html' %}
+{% load static %}
+{% block meta %}
+<title>Register</title>
+<link rel="stylesheet">
+{% endblock meta %}
+
+{% block content %}
+<body>
+    <div class="container p-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-8">
+                <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <div class = "login">
+                            <h1 class="title fw-bold">Form Registrasi Umpire</h1>
+                            <div style="color: red;">{{error}}</div>
+                                    <form method="POST" action="">
+                                        {% csrf_token %}
+                                        <div class="form-floating">
+                                            <input type="text" name="nama" placeholder="Nama" class="form-control my-3" required>
+                                            <label for="floatingInputValue">Nama</label>
+                                        </div>
+                                        <div class="form-floating">
+                                            <input type="text" name="email" placeholder="Email" class="form-control my-3" required>
+                                            <label for="floatingInputValue">Email</label>
+                                        </div>
+                                        <div class="form-floating">
+                                            <input type="text" name="negara" placeholder="Negara" class="form-control my-3" required>
+                                            <label for="floatingInputValue">Negara</label>
+                                        </div>
+                                        
+                                        <div>
+                                            <input class="btn login_btn btn-primary mx-auto m-1" type="submit" value="Daftar">     
+                                        </div>
+                                      
+                                    </form>     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock content %}

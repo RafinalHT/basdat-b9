@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block meta %}
+<title>List Ujian</title>
+<link rel="stylesheet">
+{% endblock meta %}
+
+{% block content %}
+<body>
+    <div class="container p-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                    <div class="card-body p=5 text-center">
+                        <div class="list-atlet">
+                            <h1 class="title fw-bold mb-5">List Ujian Kualifikasi</h1>
+                            <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Tahun</th>
+                                        <th scope="col">Batch</th>
+                                        <th scope="col">Tempat Pelaksanaan</th>
+                                        <th scope="col">Tanggal Pelaksanaan</th>
+                                        {% if request.session.is_atlet %}
+                                        <th scope="col">Action</th>
+                                        {% endif %}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for i in list_ujian %}
+                                    <tr>
+                                        <td>{{ i.tahun }}</td>
+                                        <td>{{ i.batch }}</td>
+                                        <td>{{ i.tempat }}</td>
+                                        <td>{{ i.tanggal }}</td>
+                                        {% if request.session.is_atlet %}
+                                        <form method="POST">
+                                            {% csrf_token %}
+                                        <td><button type="submit" class="btn btn-primary" name="action" value="{{i}}">Ikuti</button></td>
+                                        </form>
+                                        {% endif %}
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock content %}

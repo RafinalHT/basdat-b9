@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>List Atlet</title>
+<link rel="stylesheet">
+{% endblock meta %}
+
+{% block content %}
+<body>
+    {% if request.session.is_umpire %}
+    <div class="container p-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <div class="list-atlet">
+                            <h1 class="title fw-bold mb-5">List Partai Kompetisi Event</h1>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nama Event</th>
+                                            <th scope="col">Tahun</th>
+                                            <th scope="col">Stadium</th>
+                                            <th scope="col">Jenis Partai</th>
+                                            <th scope="col">Kateogri Superseries</th>
+                                            <th scope="col">Tanggal Mulai</th>
+                                            <th scope="col">Tanggal Selesai</th>
+                                            <th scope="col">Kapasitas</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for record in data %}
+                                        <tr>
+                                            <td>{{ record.nama_event }}</td>
+                                            <td>{{ record.tahun }}</td>
+                                            <td>{{ record.nama_stadium }}</td>
+                                            <td>{{ record.aggregated_jenis_partai }}</td>
+                                            <td>{{ record.kategori_superseries }}</td>
+                                            <td>{{ record.tgl_mulai }}</td>
+                                            <td>{{ record.tgl_selesai }}</td>
+                                            <td>{{ record.peserta_count }}/{{ record.kapasitas }}</td>
+                                            <td>
+                                                <div class="link">
+                                                  <a href="#">[Mulai]</a>
+                                                </div>
+                                                <div class="link">
+                                                  <a href="/umpire/hasil_pertandingan/?nama_event={{ record.nama_event }}&tahun={{ record.tahun }}">[Hasil Pertandingan]</a>
+                                                </div>
+                                              </td>
+                                              
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="container p-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <div class="list-atlet">
+                            <h1 class="title fw-bold mb-5">Anda tidak memiliki izin untuk melihat halaman ini</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</body>
+{% endblock content %}

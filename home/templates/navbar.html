@@ -1,0 +1,153 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <div class="container">
+     
+        {% if request.session.is_atlet %}
+        <a class="navbar-brand " href="#">Babadu - Atlet</a>
+        {% endif %}
+        {% if request.session.is_pelatih %} 
+        <a class="navbar-brand" href="#">Babadu - Pelatih</a>
+        {% endif %}
+        {% if request.session.is_umpire %}
+        <a class="navbar-brand" href="#">Babadu - Umpire</a>
+        {% endif %}
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse  justify-content-end" id="navbarNav">
+        <ul class="navbar-nav order-1">
+        {% if request.session.is_atlet or request.session.is_pelatih or request.session.is_umpire %}
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'dashboard:dashboard' %}">Dashboard</a>
+          </li>
+          {% endif %}
+          {% if request.session.is_atlet %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Ujian Kualifikasi
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'tes_kualifikasi:list_ujian' %}">List Ujian Kualifikasi</a>
+              <a class="dropdown-item" href="{% url 'tes_kualifikasi:riwayat' %}">Riwayat Ujian Kualifikasi</a>
+            </div>
+          </li>
+          {% endif %}
+          {% if request.session.is_atlet %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Event
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Daftar Event</a>
+              <a class="dropdown-item" href="#">Enrolled Event</a>
+              <a class="dropdown-item" href="{% url 'enrolled_partai_kompetisi:enrolled_partai_kompetisi' %}">Enrolled Partai Kompetisi</a>
+            </div>
+          </li>
+          {% endif %}
+          {% if request.session.is_atlet %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Sponsor
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'sponsor:daftar_sponsor' %}">Daftar Sponsor</a>
+              <a class="dropdown-item" href="#">List Sponsor</a>
+            </div>
+          </li>
+          {% endif %}
+
+          {% if request.session.is_umpire %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Atlet
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'umpire:daftar_atlet' %}">Daftar Atlet</a>
+            </div>
+
+          </li>
+          {% endif %}
+          {% if request.session.is_umpire %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Ujian Kualifikasi
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'tes_kualifikasi:buat_ujian' %}">Buat Ujian Kualifikasi</a>
+              <a class="dropdown-item" href="{% url 'tes_kualifikasi:list_ujian' %}">List Ujian Kualifikasi</a>
+              <a class="dropdown-item" href="{% url 'tes_kualifikasi:riwayat' %}">Riwayat Ujian Kualifikasi</a>
+            </div>
+          </li>
+          {% endif %}
+          {% if request.session.is_umpire %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Event
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'umpire:partai_kompetisi_event' %}">List Partai Kompetisi</a>
+            </div>
+          </li>
+          {% endif %}
+
+          {% if request.session.is_pelatih %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Latih Atlet
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'pelatih:daftar_atlet_pelatih' %}">Create Latih Atlet</a>
+              <a class="dropdown-item" href="{% url 'pelatih:list_atlet' %}">List Atlet Dilatih</a>
+            </div>
+          </li>
+          {% endif %}
+         
+        
+          {% if request.session.is_atlet or request.session.is_pelatih or request.session.is_umpire %}
+          <li class="nav-item">
+            <a class="nav-link"href="{% url 'authentication:logout' %}" >Logout</a>
+          </li>
+          {% endif %}
+          </div>
+        </ul>
+    </div>
+  </nav>
+<style>
+
+  
+.navbar {
+  z-index: 999;
+  
+}
+.navbar a:hover {
+  color: black;
+}
+.navbar a.active {
+  color: black;
+}
+.dropdown-item.active, .dropdown-item:active {
+  color:rgb(255, 255, 255)!important; 
+  background-color: #0d6efd;
+}
+</style>
+<script type="text/javascript" src="js/bootstrap/bootstrap-dropdown.js"></script>
+<script type="text/javascript" src="Scripts/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+<script>
+  
+     $(document).ready(function(){
+        $('.dropdown-toggle').dropdown()
+    });
+    
+
+</script>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+    $(function(){
+        $('a').each(function(){
+            if ($(this).prop('href') == window.location.href) {
+                $(this).addClass('active'); $(this).parent().addClass('active');
+            }
+        });
+    });
+</script>
+ 

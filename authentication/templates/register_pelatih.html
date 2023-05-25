@@ -1,0 +1,108 @@
+{% extends 'base_2.html' %}
+{% load static %}
+{% block meta %}
+<title>Register</title>
+<link rel="stylesheet">
+{% endblock meta %}
+
+{% block content %}
+<body>
+    <div class="container p-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-8">
+                <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                    <div class="card-body p-5 ">
+                        <div class = "login">
+                            
+                            <h1 class="title fw-bold text-center">Form Registrasi Pelatih</h1>
+                            <div class = "text-center" style="color: red;">{{error}}</div>
+                                <form method="POST" action="">
+                                  {% csrf_token %}
+                                        <div class="form-floating">
+                                            <input type="text" name="nama" placeholder="Nama" class="form-control my-3" required>
+                                            <label for="floatingInputValue">Nama</label>
+                                        </div>
+                                        <div class="form-floating">
+                                            <input type="text" name="email" placeholder="Email" class="form-control my-3" required>
+                                            <label for="floatingInputValue">Email</label>
+                                        </div>
+                                        <div>
+                                            <label>Kategori:</label>
+                                        </div>
+                                        <div class="container" >
+                                          <div class="form-check" >
+                                            <input class="form-check-input" name="kategori" type="checkbox" value="Tunggal Putra" id="flexCheckDefault" >
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                              Tunggal Putra
+                                            </label>
+                                          </div>
+                                          <div class="form-check" >
+                                            <input class="form-check-input" name="kategori" type="checkbox" value="Tunggal Putri" id="flexCheckDefault"  >
+                                            <label class="form-check-label" for="flexCheckDefault" >
+                                              Tunggal Putri
+                                            </label>
+                                          </div>
+                                          <div class="form-check" >
+                                            <input class="form-check-input" name="kategori" type="checkbox" value="Ganda Putra" id="flexCheckDefault" >
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                              Ganda Putra
+                                            </label>
+                                          </div>
+                                          <div class="form-check" >
+                                            <input class="form-check-input" name="kategori" type="checkbox" value="Ganda Putri" id="flexCheckDefault"  >
+                                            <label class="form-check-label" for="flexCheckDefault" >
+                                              Ganda Putri
+                                            </label>
+                                          </div>
+                                          <div class="form-check" >
+                                            <input class="form-check-input" name="kategori" type="checkbox" value="Ganda Campuran" id="flexCheckDefault"  >
+                                            <label class="form-check-label" for="flexCheckDefault" >
+                                              Ganda Campuran
+                                            </label>
+                                        </div>
+                                    </div>
+                                        <br>
+                                        <div >
+                                          <div class="form-floating">
+                                            <input type="date" name="tanggal_mulai" placeholder="Tanggal Mulai" class="form-control my-3" required>
+                                            <label for="floatingInputValue">Tanggal Mulai</label>
+                                        </div>
+                                        </div>
+                                        <br>
+                                        <div  style="text-align: center;">
+                                          <input class="btn login_btn btn-primary mx-auto m-1" type="submit" value="Daftar">       
+                                        </div>
+                                    </form>     
+                                   
+                                    <script>
+                                      // Custom validation function
+                                      function validateForm() {
+                                          const checkboxes = document.querySelectorAll('input[name="kategori"]');
+                                          let checked = false;
+                                          checkboxes.forEach((checkbox) => {
+                                              if (checkbox.checked) {
+                                                  checked = true;
+                                              }
+                                          });
+                                          if (!checked) {
+                                              alert('Please select at least one checkbox.');
+                                              return false;
+                                          }
+                                          return true;
+                                      }
+                                  
+                                      // Attach validation to form submission
+                                      const form = document.querySelector('form');
+                                      form.addEventListener('submit', function (event) {
+                                          if (!validateForm()) {
+                                              event.preventDefault(); // Prevent form submission
+                                          }
+                                      });
+                                  </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock content %}

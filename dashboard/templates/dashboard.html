@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Dashboard</title>
+{% endblock meta %}
+
+{% block content %}
+{% if request.session.is_atlet %}
+<div class="container p-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-12">
+            <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                <div class="card-body p-5">
+                    <h1 class="title fw-bold text-center">Profile Information</h1>
+                    <hr>
+                    <p class="card-text"><strong>Name:</strong> {{data.nama}}</p>
+                    <p class="card-text"><strong>Negara: </strong> {{ data.negaraAsal}}</p>
+                    <p class="card-text"><strong>Email:</strong> {{data.email}}</p>
+                    <p class="card-text"><strong>Tanggal Lahir:</strong> {{data.tanggalLahir }}</p>
+                    <p class="card-text"><strong>Play:</strong> {{data.play}}</p>
+                    <p class="card-text"><strong>Tinggi Badan:</strong> {{ data.height}}</p>
+                    <p class="card-text"><strong>Jenis Kelamin:</strong> {{data.jenisKelamin}}</p>
+                    <p class="card-text"><strong>Pelatih:</strong> {{data.pelatih}}</p>
+                    <p class="card-text"><strong>Status:</strong> {{data.status}}</p>
+                    <p class="card-text"><strong>World Rank:</strong> {{data.worldRank}}</p>
+                    <p class="card-text"><strong>Total Poin:</strong> {{data.poin}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% if request.session.is_pelatih %}
+<div class="container p-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-12">
+            <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                <div class="card-body p-5">
+                    <h1 class="title fw-bold text-center">Profile Information</h1>
+                    <hr>
+                    <p class="card-text"><strong>Name:</strong> {{data.nama}}</p>
+                    <p class="card-text"><strong>Email:</strong> {{data.email}}</p>
+                    <p class="card-text"><strong>Spesialisasi Kategori:</strong> {{data.spesialisasi}}</p>
+                    <p class="card-text"><strong>Tanggal Mulai:</strong> {{data.tanggalMulai}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  {% endif %}
+  {% if request.session.is_umpire %}
+  <div class="container p-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-12">
+            <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                <div class="card-body p-5">
+                    <h1 class="title fw-bold text-center">Profile Information</h1>
+                    <hr>
+                    <p class="card-text"><strong>Name:</strong> {{data.nama}}</p>
+                    <p class="card-text"><strong>Negara</strong> {{data.negara}}</p>
+                    <p class="card-text"><strong>Email:</strong> {{data.email}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  {% endif %}
+{% endblock content %}
+<style>
+    .card {
+    position: relative;
+    z-index: 1; /* Set lower z-index value to keep the card below the dropdown */
+  }
+</style>
+
+
