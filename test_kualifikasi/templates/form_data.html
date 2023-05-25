@@ -15,7 +15,6 @@
               <h1 class="title fw-bold text-center">Form Buat Ujian Kualifikasi</h1>
               <div class = "text-center" style="color: red;">{{error}}</div>
               <form method="POST" action="">
-                {% csrf_token %}
                 <div class="form-floating">
                   <input type="text" name="tahun" id = "tahun" placeholder="Tahun" class="form-control my-3"/>
                   <label for="floatingInputValue">Tahun</label>
