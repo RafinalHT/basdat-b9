@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hasil Pertandingan</title>
+<link rel="stylesheet">
+{% endblock meta %}
+
+{% block content %}
+<body>
+    <style>
+        .left-aligned {
+            text-align: left;
+        }
+    </style>
+
+    {% if request.session.is_umpire %}
+    <div class="container p-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <div class="list-atlet text-left">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th colspan="4">Pertandingan Juara 3<br>00:00</th>
+                                        <tr>
+                                            <th>Tim 1</th>
+                                            <th>Tim 2</th>
+                                            <th>Skor Tim 1</th>
+                                            <th>Skor Tim 2</th>
+                                        </tr>
+                                        <tr>
+                                            <td>D</td>
+                                            <td>E</td>
+                                            <td>
+                                                <button class="btn btn-danger">-</button>
+                                                1
+                                                <button class="btn btn-primary">+</button>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger">-</button>
+                                                0
+                                                <button class="btn btn-primary">+</button>
+                                            </td>
+                                        </tr>
+                                        <th colspan="4">
+                                            <tr></tr>
+                                        </th>  
+                                        <th colspan="4">Final<br>00:00</th>
+                                        <tr>
+                                            <th>Tim 1</th>
+                                            <th>Tim 2</th>
+                                            <th>Skor Tim 1</th>
+                                            <th>Skor Tim 2</th>
+                                        </tr>
+                                        <tr>
+                                            <td>A</td>
+                                            <td>G</td>
+                                            <td>
+                                                <button class="btn btn-danger">-</button>
+                                                1
+                                                <button class="btn btn-primary">+</button>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-danger">-</button>
+                                                0
+                                                <button class="btn btn-primary">+</button>
+                                            </td>
+                                        </tr>
+                                        <th colspan="4">
+                                            <div class="link">
+                                                <a href="/umpire/juara3">[DONE]</a>
+                                              </div>
+                                        </th>  
+                                    </tr>                                                  
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="container p-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <div class="list-atlet">
+                            <h1 class="title fw-bold mb-5">Anda tidak memiliki izin untuk melihat halaman ini</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</body>
+{% endblock content %}
