@@ -35,15 +35,8 @@ def daftar_sponsor(request):
             VALUES ('{id}','{id_sponsor}', '{tgl_mulai}', '{tgl_selesai}')
         """)
         print(data)
-        # daftar_sponsor= f"""
-        
-        # """
-        # try:
-        #     cursor.execute('set search_path to babadu')
-        #     cursor.execute(daftar_sponsor)
-        #     return redirect('sponsor:list_sponsor')
-        # except InternalError as e:
-        #     messages.info(request, str(e.args))
+        response = redirect('sponsor:list_sponsor')
+        return response
 
     return render(request, 'daftar_sponsor.html', context)
 
@@ -62,12 +55,11 @@ def list_sponsor(request):
                     a.id_atlet = '{id}'
         """)
     print(data)
-    print(data==[])
-    if data==[]:
-        print(4)
-        result={}
-        status={'status': True }
-    else:
-        result = [{'tahun': item[0], 'batch': item[1], 'tempat': item[2], 'tanggal': item[3],'hasil': item[4]} for item in data]
-        status={}
-    return render(request, 'list_sponsor.html')
+    detail_sponsor = []
+    if data:
+        detail_sponsor = [{'nama_brand' : item[0],
+                        'tgl_mulai' : item[1],
+                        'tgl_selesai': item[2], 
+                        } for item in data]
+    print(detail_sponsor)
+    return render(request, 'list_sponsor.html', context={'detail_sponsor':detail_sponsor})

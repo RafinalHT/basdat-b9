@@ -1,8 +1,85 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block meta %}
-<title>Daftar Sponsor</title>
-<link rel="stylesheet">
+<title>list sponsor</title>
 {% endblock meta %}
 
-<h1> LIST SPONSOR</h1>
+{% block content %}
+
+<head>
+    <style>
+        body {
+			font-family: Arial, sans-serif;
+			background-color: #F5F5F5;
+            text-align:center;
+		}
+		.container {
+			display: flex;
+            flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			margin: 0 auto;
+		}
+		
+		.card {
+			background-color: #FFFFFF;
+			border-radius: 10px;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+			margin: 10px;
+			padding: 20px;
+			width: 400px;
+			height: auto;
+			text-align: center;
+			cursor: pointer;
+			transition: transform 0.2s ease-in-out;
+		}
+		
+		.card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+		}
+		
+		.card h2 {
+			font-size: 24px;
+			font-weight: bold;
+			margin-top: 0;
+			color: #333333;
+		}
+		
+		.card p {
+			font-size: 16px;
+			color: #666666;
+			margin: 10px;
+		}
+		
+		.card span {
+			font-size: 14px;
+			color: #999999;
+			margin: 10px;
+		}
+    </style>
+</head>
+
+<body>
+    <br></br>
+    <h3>LIST SPONSOR</h3>
+    <div class="container">
+        {% if detail_sponsor %}
+            {% for i in detail_sponsor %}
+                <div class="card">
+                    <div class="card-header">
+                        <h2>{{ i.nama_brand }}</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Start Date: {{ i.tgl_mulai }}</p>
+                        <p class="card-text">End Date: {{ i.tgl_selesai }}</p>
+                    </div>
+                    
+                </div>
+            {% endfor %}
+        {% else %}
+            <h4>Belum ada sponsor</h4>  
+        {% endif %}
+    </div>
+</body>
+{% endblock content %}
