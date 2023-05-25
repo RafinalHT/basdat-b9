@@ -11,29 +11,10 @@
     margin: 0 auto;
     width: 80%;
   }
-  .navbar-nav {
-    float: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    text-align: center;
-  }
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-  }
+ 
 </style>
 {% endblock meta %} {% block content %}
 <body>
- 
   <table class="table table-bordered">
     <tr>
       <th colspan="4">Daftar Event</th>
@@ -44,24 +25,16 @@
       <th>Kapasitas</th>
       <th></th>
     </tr>
+    {% for data in stadium %}
     <tr>
-      <td>Stadium 1</td>
-      <td>China</td>
-      <td>200000</td>
-      <td><a class="btn btn-primary" role="button">Pilih</a></td>
+      <td>{{ data.nama }}</td>
+      <td>{{ data.negara }}</td>
+      <td>{{ data.kapasitas }}</td>
+      <td>
+        <a class="btn btn-primary" role="button" href="{{data.nama}}">Pilih</a>
+      </td>
     </tr>
-    <tr>
-      <td>Stadium 2</td>
-      <td>Indonesia</td>
-      <td>100000</td>
-      <td><a class="btn btn-primary" role="button">Pilih</a></td>
-    </tr>
-    <tr>
-      <td>Stadium 3</td>
-      <td>England</td>
-      <td>500000</td>
-      <td><a class="btn btn-primary" role="button">Pilih</a></td>
-    </tr>
+    {% endfor %}
   </table>
 </body>
 {% endblock content %}
