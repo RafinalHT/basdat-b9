@@ -39,6 +39,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{% url 'daftar_event:pilih_stadium' %}">Daftar Event</a>
               <a class="dropdown-item" href="#">Enrolled Event</a>
+              <a class="dropdown-item" href="{% url 'enrolled_partai_kompetisi:enrolled_partai_kompetisi' %}">Enrolled Partai Kompetisi</a>
             </div>
           </li>
           {% endif %}
@@ -48,20 +49,21 @@
               Sponsor
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Daftar Sponsor</a>
+              <a class="dropdown-item" href="{% url 'sponsor:daftar_sponsor' %}">Daftar Sponsor</a>
               <a class="dropdown-item" href="#">List Sponsor</a>
             </div>
           </li>
           {% endif %}
-          
+
           {% if request.session.is_umpire %}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Atlet
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Daftar Atlet</a>
+              <a class="dropdown-item" href="{% url 'umpire:daftar_atlet' %}">Daftar Atlet</a>
             </div>
+
           </li>
           {% endif %}
           {% if request.session.is_umpire %}
@@ -82,7 +84,7 @@
               Event
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">List Partai Kompetisi</a>
+              <a class="dropdown-item" href="{% url 'umpire:partai_kompetisi_event' %}">List Partai Kompetisi</a>
             </div>
           </li>
           {% endif %}
@@ -93,18 +95,13 @@
               Latih Atlet
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Create Latih Atlet</a>
-              <a class="dropdown-item" href="#">List Atlet Dilatih</a>
+              <a class="dropdown-item" href="{% url 'pelatih:daftar_atlet_pelatih' %}">Create Latih Atlet</a>
+              <a class="dropdown-item" href="{% url 'pelatih:list_atlet' %}">List Atlet Dilatih</a>
             </div>
           </li>
           {% endif %}
          
-         
-          {% if request.session.is_umpire %}
-          <li class="nav-item">
-            <a class="nav-link" href="#">Hasil Pertandingan</a>
-          </li>
-          {% endif %}
+        
           {% if request.session.is_atlet or request.session.is_pelatih or request.session.is_umpire %}
           <li class="nav-item">
             <a class="nav-link"href="{% url 'authentication:logout' %}" >Logout</a>

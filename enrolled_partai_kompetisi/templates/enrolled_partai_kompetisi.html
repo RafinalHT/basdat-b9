@@ -62,10 +62,10 @@
 
 <body>
     <br></br>
-    <h3>ENROLLED EVENTS</h3>
+    <h3>ENROLLED PARTAI KOMPETISI</h3>
     <div class="container">
-        {% if list_enrolled_event %}
-            {% for i in list_enrolled_event %}
+        {% if list_enrolled_partai_kompetisi %}
+            {% for i in list_enrolled_partai_kompetisi %}
                 <div class="card">
                     <div class="card-header">
                         <h2>{{ i.nama_event }}</h2>
@@ -73,22 +73,16 @@
                     <div class="card-body">
                         <p class="card-text">Tahun: {{ i.tahun }}</p>
                         <p class="card-text">Stadium: {{ i.nama_stadium }}</p>
+                        <p class="card-text">Jenis Partai: {{ i.jenis_peserta }}</p>
                         <p class="card-text">SuperSeries: {{ i.kategori_superseries }}</p>
                         <p class="card-text">Start Date: {{ i.tgl_mulai }}</p>
                         <p class="card-text">End Date: {{ i.tgl_selesai }}</p>
                     </div>
-                    <div class="card-footer">
-                        <!--button class="btn btn-primary">Unenroll</button-->
-                        <!--a role="button" class="btn btn-outline-danger text-center" name="action" value="{{i}}" href="/enrolled_event/unenrolledevent/">Unenroll</a-->
-                        <form method="POST">
-                            {% csrf_token %}
-                        <button type="submit" class="btn btn-primary" name="action" value="{{i}}">Unenroll</button>
-                        </form>
-                    </div>
+                    
                 </div>
             {% endfor %}
         {% else %}
-            <h4>Belum ada event</h4>  
+            <h4>Belum ada partai kompetisi</h4>  
         {% endif %}
     </div>
 </body>
