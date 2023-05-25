@@ -51,8 +51,9 @@ def list_ujian(request):
           response.set_cookie('tanggal', tanggal)
           return response
     data = query.query(f"select tahun,batch,tempat,tanggal from ujian_kualifikasi")
+    print("data s:", data)
     result = [{'tahun': item[0], 'batch': item[1], 'tempat': item[2], 'tanggal': item[3]} for item in data]
-  
+
     return render(request, 'list_ujian.html', context = {'list_ujian': result})
 
 

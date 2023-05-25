@@ -43,6 +43,11 @@
           {% endif %}
           {% if request.session.is_atlet %}
           <li class="nav-item">
+            <a class="nav-link" href="{% url 'enrolled_partai_kompetisi:enrolled_partai_kompetisi' %}">Enrolled Partai Kompetisi</a>
+          </li>
+          {% endif %}
+          {% if request.session.is_atlet %}
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'sponsor:daftar_sponsor' %}">Daftar Sponsor</a>
           </li>
           {% endif %}

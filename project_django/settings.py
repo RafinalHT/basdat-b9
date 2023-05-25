@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'test_kualifikasi',
     'daftar_event',
     'enrolled_event',
+    'enrolled_partai_kompetisi',
 ]
 
 MIDDLEWARE = [
