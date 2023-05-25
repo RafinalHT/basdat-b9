@@ -43,9 +43,11 @@
                                             <td>{{ record.tgl_selesai }}</td>
                                             <td>{{ record.peserta_count }}/{{ record.kapasitas }}</td>
                                             <td>
+                                                {% if record.peserta_count == record.kapasitas %}
                                                 <div class="link">
                                                   <a href="/umpire/perempat_final">[Mulai]</a>
                                                 </div>
+                                                {% endif %}
                                                 {% if record.peserta_count == record.kapasitas %}
                                                 <div class="link">
                                                   <a href="/umpire/hasil_pertandingan/?nama_event={{ record.nama_event }}&tahun={{ record.tahun }}">[Hasil Pertandingan]</a>
