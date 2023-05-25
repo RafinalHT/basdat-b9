@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hasil Pertandingan</title>
+<link rel="stylesheet">
+{% endblock meta %}
+
+{% block content %}
+<body>
+    <style>
+        .left-aligned {
+            text-align: left;
+        }
+    </style>
+
+    {% if request.session.is_umpire %}
+    <div class="container p-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <div class="list-atlet text-left">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <th rowspan="2">Kategori<br>Super<br>Series</th>
+                                    <th colspan="6">Jenis Babak</th>
+                                    <tr>
+                                        <th>Juara 1</th>
+                                        <th>Juara 2</th>
+                                        <th>Semifinal</th>
+                                        <th>Perempat Final</th>
+                                        <th>R16</th>
+                                        <th>R32</th>
+                                    </tr>  
+                                    <tr>
+                                        <th>S1000</th>
+                                        <th>1000</th>
+                                        <th>800</th>
+                                        <th>600</th>
+                                        <th>400</th>
+                                        <th>200</th>
+                                        <th>100</th>
+                                    </tr>                               
+                                    <tr>
+                                        <th>S750</th>
+                                        <th>750</th>
+                                        <th>600</th>
+                                        <th>450</th>
+                                        <th>300</th>
+                                        <th>150</th>
+                                        <th>75</th>
+                                    </tr>                               
+                                    <tr>
+                                        <th>S500</th>
+                                        <th>500</th>
+                                        <th>400</th>
+                                        <th>300</th>
+                                        <th>200</th>
+                                        <th>100</th>
+                                        <th>50</th>
+                                    </tr>                               
+                                    <tr>
+                                        <th>S300</th>
+                                        <th>300</th>
+                                        <th>240</th>
+                                        <th>180</th>
+                                        <th>120</th>
+                                        <th>60</th>
+                                        <th>30</th>
+                                    </tr>                               
+                                    <tr>
+                                        <th>S100</th>
+                                        <th>100</th>
+                                        <th>80</th>
+                                        <th>60</th>
+                                        <th>40</th>
+                                        <th>20</th>
+                                        <th>10</th>
+                                    </tr>                               
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="container p-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <div class="list-atlet">
+                            <h1 class="title fw-bold mb-5">Anda tidak memiliki izin untuk melihat halaman ini</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</body>
+{% endblock content %}

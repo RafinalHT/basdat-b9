@@ -293,3 +293,15 @@ def convert_dict_to_list_pke(data_dict):
         data_list.append(data)
     
     return data_list
+
+def perempat_final(request):
+    return render(request, 'perempat_final_umpire.html')
+
+def semifinal(request):
+    return render(request, 'semifinal_umpire.html')
+
+def juara3(request):
+    return render(request, 'juara3_umpire.html')
+
+def pertandingan(request):
+    return render(request, 'pertandingan_umpire.html')
