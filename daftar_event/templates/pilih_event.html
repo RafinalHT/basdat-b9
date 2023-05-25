@@ -11,25 +11,38 @@
     margin: 0 auto;
     width: 80%;
   }
- 
- 
 </style>
 {% endblock meta %} {% block content %}
 <body>
- 
   <table class="table table-bordered">
     <tr>
-      <th colspan="6">Daftar Event</th>
+      <th colspan="5">Daftar Event</th>
     </tr>
     <tr>
       <th>Nama Event</th>
       <th>Total Hadiah</th>
       <th>Tanggal Mulai</th>
       <th>Kategori</th>
-      <th>Kapasitas</th>
       <th></th>
     </tr>
+    {% if event %} {% for data in event %}
     <tr>
+      <td>{{ data.nama_event }}</td>
+      <td>{{ data.total_hadiah }}</td>
+      <td>{{ data.tgl_mulai }}</td>
+      <td>{{ data.kategori_superseries }}</td>
+      <td>
+        <a class="btn btn-primary" role="button" href="{{data.nama_event}}"
+          >Pilih</a
+        >
+      </td>
+    </tr>
+    {% endfor %} {% else %}
+    <tr>
+      <td colspan="5" class="text-center">Tidak Ada Event</td>
+    </tr>
+    {% endif %}
+    <!-- <tr>
       <td>Event 1</td>
       <td>$400.000</td>
       <td>29 Maret 2021</td>
@@ -52,7 +65,7 @@
       <td>S750</td>
       <td>15/20</td>
       <td><a class="btn btn-primary" role="button">Pilih</a></td>
-    </tr>
+    </tr> -->
   </table>
 </body>
 {% endblock content %}
