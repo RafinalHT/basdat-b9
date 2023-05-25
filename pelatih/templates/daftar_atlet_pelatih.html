@@ -17,7 +17,8 @@
                         <div class="daftar-sponsor">
                             <h1 class="title fw-bold">Daftar Atlet</h1>
                             <div style="color: red;">{{ context.0 }}</div>
-                            <form method="POST" action=""></form>
+                            <form method="POST" action="">
+                                {% csrf_token %}
                                 <div class="form-floating">
                                     <select name="atlet" class="form-select my-3">
                                         <option selected disabled></option>
