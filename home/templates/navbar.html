@@ -38,7 +38,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Daftar Event</a>
-              <a class="dropdown-item" href="#">Enrolled Event</a>
+              <a class="dropdown-item" href="{% url 'enrolled_event:enrolled_event' %}">Enrolled Event</a>
               <a class="dropdown-item" href="{% url 'enrolled_partai_kompetisi:enrolled_partai_kompetisi' %}">Enrolled Partai Kompetisi</a>
             </div>
           </li>
@@ -50,7 +50,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{% url 'sponsor:daftar_sponsor' %}">Daftar Sponsor</a>
-              <a class="dropdown-item" href="#">List Sponsor</a>
+              <a class="dropdown-item" href="{% url 'sponsor:list_sponsor' %}">List Sponsor</a>
             </div>
           </li>
           {% endif %}
