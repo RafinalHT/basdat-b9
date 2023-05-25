@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>List Atlet</title>
+<link rel="stylesheet">
+{% endblock meta %}
+
+{% block content %}
+<body>
+    <style>
+        .left-aligned {
+            text-align: left;
+        }
+    </style>
+
+    {% if request.session.is_umpire %}
+    <div class="container p-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <div class="list-atlet text-left">
+                            <h1 class="title fw-bold mb-5">Hasil Pertandingan {{ data.nama_event.0 }}</h1>
+                            <div>
+                                <p class="text-left">Nama Event : {{ data.nama_event.0 }}</p>
+                                <p class="text-left">Stadium : {{ data.nama_stadium.0 }}</p>
+                                <p class="text-left">Hadiah : {{ data.total_hadiah.0 }}</p>
+                                <p class="text-left">Kategori Superseries : {{ data.kategori_superseries.0 }}</p>
+                                <p class="text-left">Tanggal Mulai : {{ data.tgl_mulai.0 }}</p>
+                                <p class="text-left">Tanggal Selesai : {{ data.tgl_selesai.0 }}</p>
+                                <p class="text-left">Kapasitas : {{ data.peserta_count.0 }}/{{ data.kapasitas.0 }}</p>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Tahap</th>
+                                            <th scope="col">Nama Tim</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="container p-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card bg-white text-dark shadow-lg border-0" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <div class="list-atlet">
+                            <h1 class="title fw-bold mb-5">Anda tidak memiliki izin untuk melihat halaman ini</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</body>
+{% endblock content %}
